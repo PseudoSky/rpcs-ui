@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="C:/Users/madhuri/Desktop/Chart.js"></script>
+  <script src="Chart.js"></script>
 <style>
 #header {
     background-color:black;
@@ -71,24 +71,20 @@
 
   var barChartData = {
     labels : ["January","February","March","April","May","June","July"],
-    datasets : [
-      
-      {
-        fillColor : "rgba(151,187,205,0.5)",
-        strokeColor : "rgba(151,187,205,0.8)",
-        highlightFill : "rgba(151,187,205,0.75)",
-        highlightStroke : "rgba(151,187,205,1)",
-        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
-      }
-    ]
-
+    datasets : [{
+      fillColor : "rgba(151,187,205,0.5)",
+      strokeColor : "rgba(151,187,205,0.8)",
+      highlightFill : "rgba(151,187,205,0.75)",
+      highlightStroke : "rgba(151,187,205,1)",
+      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+    }]
   }
-  window.onload = function(){
+  // window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
-    window.myBar = new Chart(ctx).Bar(barChartData, {
-      responsive : true
-    });
-  }
+    window.myBar = new Chart(ctx).Bar(barChartData); //, {
+    //   responsive : true
+    // });
+  // }
 
   </script>
 

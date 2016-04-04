@@ -79,3 +79,18 @@ a:hover {
 #dashboard-background {
 	background-color: #f4f3f5;
 }
+
+#dash-widget {
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  position: relative;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 3px;
+  color: #0a0a0a;
+  background-color: white; 
+}
+
+#canvas1 {
+	height: 300px;
+	width: 400px;
+}

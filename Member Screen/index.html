@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
+    <script src="Chart.js"></script>
   </head>
   <body>
 
@@ -196,7 +197,147 @@
           <div id="dashboard-background" class="small-11 small-centered columns">
 
             <!-- ENTER WIDGETS INSIDE THIS DIV -->
-            <div class="row">enter widgets here</div>
+            <div class="row"><br></div>
+
+            <div class="row">
+              <div id="dash-widget" class="large-6 medium-6 small-6 columns">
+                  <h6>Heart Rate</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                  <div id="nav" width= "50px">
+                    <input type = "Submit" value = "Confirm">
+                  </div>
+              </div>
+              <div class="large-6 medium-6 small-6 columns">
+                <div class="callout">
+                  <h6>Weight</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                  <div id= "footer" style="width:100%" align="center">
+                    <div>
+                      <canvas id="canvas1"></canvas>
+                    </div>
+                  </div>
+                  <script>
+                    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+                    var barChartData = {
+                      labels : ["January","February","March","April","May","June","July"],
+                      datasets : [
+                        
+                        {
+                          fillColor : "rgba(151,187,205,0.5)",
+                          strokeColor : "rgba(151,187,205,0.8)",
+                          highlightFill : "rgba(151,187,205,0.75)",
+                          highlightStroke : "rgba(151,187,205,1)",
+                          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                        }
+                      ]
+
+                    }
+                    window.onload = function(){
+                      var ctx = document.getElementById("canvas1").getContext("2d");
+                      window.myBar = new Chart(ctx).Bar(barChartData, {
+                        responsive : true
+                      });
+                    }
+                  </script>
+                </div>
+              </div>
+<!--               <div class="large-4 medium-4 small-4 columns">
+                <div class="callout">
+                  <p>Four columns</p>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="row">
+              <div class="large-6 medium-6 columns">
+                <div class="callout">
+                  <h6>Nutrition</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                </div>
+              </div>
+              <div class="large-6 medium-6 columns">
+                <div class="callout">
+                  <h6>Mood</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                  <p>Top 5 frequent moods for the week<br>
+                    &emsp;1. Bored<br>
+                    &emsp;2. Sad<br>
+                    &emsp;3. Helpless<br>
+                    &emsp;4. Tired<br>
+                    &emsp;5. Frustrated<br>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="large-8 medium-8 small-8 columns">
+                <div class="callout">
+                  <h6>Sleep</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                </div>
+              </div>
+              <div class="large-4 medium-4 small-4 columns">
+                <div class="callout">
+                  <h6>Medication</h6>
+                  <select>
+                    <option value="1">Daily</option>
+                    <option value="7">7 days</option>
+                    <option value="28">28 days</option>
+                  </select>
+                  <div id= "footer" style="width:100%" align="center">
+                    <div>
+                      <canvas id="canvas" height="200" width="300"></canvas>
+                    </div>
+                  </div>
+                  <script>
+                    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+                    var barChartData = {
+                      labels : ["January","February","March","April","May","June","July"],
+                      datasets : [
+                        
+                        {
+                          fillColor : "rgba(151,187,205,0.5)",
+                          strokeColor : "rgba(151,187,205,0.8)",
+                          highlightFill : "rgba(151,187,205,0.75)",
+                          highlightStroke : "rgba(151,187,205,1)",
+                          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                        }
+                      ]
+
+                    }
+                    window.onload = function(){
+                      var ctx = document.getElementById("canvas").getContext("2d");
+                      window.myBar = new Chart(ctx).Bar(barChartData, {
+                        responsive : true
+                      });
+                    }
+                  </script
+                </div>
+              </div>
+            </div>
 
           </div><br>
         </div>
