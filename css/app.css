@@ -89,3 +89,7 @@ a:hover {
   color: #0a0a0a;
   background-color: white; 
 }
+
+#nutrition-img {
+	margin-left: 10px;
+}
