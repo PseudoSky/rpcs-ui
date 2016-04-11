@@ -79,3 +79,22 @@ a:hover {
 #dashboard-background {
 	background-color: #f4f3f5;
 }
+
+.dash-widget {
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+/*  border: 1px solid rgba(20, 20, 20, 10);*/
+  border-radius: 3px;
+  color: #0a0a0a;
+  background-color: white; 
+}
+
+#nutrition-img {
+	margin-left: 10px;
+}
+
+.widget-title {
+	color: #f86d57;
+	font-weight: 600;
+}
+
