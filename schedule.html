@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/app.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="css/c3.min.css">
     <script src="Chart.js"></script>
   </head>
   <body>
@@ -18,13 +17,13 @@
     <div class="top-bar">
       <div class="top-bar-title">
         <img id="bird-img" width="40" height="auto" src="img/BEC.png">
-        <font id="title"><a href="index.html" id="title">BIRD'S EYE CARE</a></font>
+        <font id="title"><a href="home-index.h" id="title">BIRD'S EYE CARE</a></font>
       </div>
       <div class="top-bar-left">
         <ul class="menu">
           <li><a class="top-text" href="my-members.html">My members</a></li>
-          <li><a class="top-text" href="schedule.html">Schedule</a></li>
-          <li><a class="top-text" href="home-index.html">Collaboration</a></li>
+          <li><a class="top-text" href="#">Schedule</a></li>
+          <li><a class="top-text" href="#">Collaboration</a></li>
           <li><a class="top-text" href="#">Settings</a></li>
         </ul>
       </div>
@@ -37,9 +36,10 @@
 <!--Main Page Container-->
   <div id="main-page-background" class="row">
     <div id="main-page" class="small-12 small-centered columns">
+
+    <!--Main Code-->
         <!--Member Alerts-->
         <p class="section-header">Sally's Schedule</p><hr>     
-      
         <!--CONTAINER ROW-->
           <div class="row small-uncollapse medium-collapse large-uncollapse">
             <!--Month column-->
@@ -324,7 +324,7 @@
                           <div class="agenda-row-date">10:00am</div>
                         </div>
                         <div class="small-10 columns">
-                          <div class="agenda-row-event">Care coordinator catch-up meeting<br/><br/><br/><br/><br/></div>
+                          <div class="agenda-row-event"><a class="event-lnk" href="#">Care coordinator catch-up meeting</a><br/><br/><br/><br/><br/></div>
                         </div>
                       </div>
                       <!--ROW 2-->
@@ -333,7 +333,7 @@
                           <div class="agenda-row-date">12:00pm</div>
                         </div>
                         <div class="small-10 columns">
-                          <div class="agenda-row-event">Check-in call with Lauren<br/><br/></div>
+                          <div class="agenda-row-event"><a class="event-lnk" href="#">Check-in call with Debbie</a><br/><br/></div>
                         </div>
                       </div>
                       <!--ROW 3-->
@@ -342,7 +342,7 @@
                           <div class="agenda-row-date">03:00pm</div>
                         </div>
                         <div class="small-10 columns">
-                          <div class="agenda-row-event">Home visit with Deborah Doson<br/><br/><br/><br/></div>
+                          <div class="agenda-row-event"><button class="event-lnk" id="myBtn">Home visit with Ester Rohbark</button><br/><br/><br/><br/></div>
                         </div>
                       </div>
                       <!--ROW 4-->
@@ -351,7 +351,7 @@
                           <div class="agenda-row-date">05:00pm</div>
                         </div>
                         <div class="small-10 columns">
-                          <div class="agenda-row-event">Meeting with Sandy, Care Coordinator<br/><br/><br/></div>
+                          <div class="agenda-row-event"><a class="event-lnk" href="#">Meeting with Sandy, Care Coordinator</a><br/><br/><br/></div>
                         </div>
                       </div>
                       <!--END OF ROW-->
@@ -365,16 +365,64 @@
           <!--Close row-->
         <div> <br/></div>
     </div>
+
+    <!--SAMPLE EVENT START -->
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">x</span>
+            <h1 class="evnt-header">Home visit with Ester Rohbark</h1>
+            <div class="row small-uncollapse medium-uncollapse large-collapse">
+              <div class="small-1 columns">
+                <img src="img/schedule/dt-icon-orange.png" class="evnt-img">
+              </div>
+              <div class="small-11 columns">
+                <p class="evnt-p">Wednesday, April 13th, 2016, 3:00 PM - 5:00 PM</p>
+              </div>
+            </div>
+            <hr class="evnt-hr">
+            <div class="row small-uncollapse medium-collapse large-collapse">
+              <div class="small-1 columns">
+                <img src="img/schedule/loc-icon-orange.png" class="evnt-img">
+              </div>
+              <div class="small-11 columns">
+                <p class="evnt-p">1234 Main Street<br/>Pittsburgh, PA 15123</p>
+              </div>
+            </div>
+            <hr class="evnt-hr">
+            <div class="row small-uncollapse medium-collapse large-collapse">
+              <div class="small-1 columns">
+                <img src="img/schedule/people-icon-orange.png" class="evnt-img">
+              </div>
+              <div class="small-11 columns">
+                <p class="evnt-p"><a href="index.html">Ester Rohbark</a><br/>412-254-2048</p>
+              </div>
+            </div>
+            <hr class="evnt-hr">
+            <div class="row small-uncollapse medium-collapse large-collapse">
+              <div class="small-1 columns">
+                <img src="img/schedule/descr-icon-orange.png" class="evnt-img">
+              </div>
+              <div class="small-11 columns">
+                <p class="evnt-p">Monthly check-in with our member, Ester, and her husband, Scott.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
     <div> <br/></div>
   </div>
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery.sticky.js"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/c3.min.js"></script>  
 
     <script>
     var d = new Date();
