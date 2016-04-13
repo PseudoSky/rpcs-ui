@@ -422,18 +422,25 @@
                   </select>
                   <div align="center">
                     <table>
-                      <td align="right">
-                        <h2>7.1</h2>
-                      </td>
-                      <td align="left">
-                        <img id="nutrition-img" src="img/liquid.png" width="70" height="auto">
-                      </td>
-                      <td align="right">
-                        <h2>2.9</h2>
-                      </td>
-                      <td align="left">
-                        <img id="nutrition-img" src="img/food.png" width="70" height="auto">
-                      </td>
+                      <tr>
+                        <td align="center">average meals</td>
+                        <td align="center">average snacks</td>
+                        <td align="center">average fluids</td>
+                      </tr> 
+                      <tr>
+                        <td align="center">
+                          <h4>7.1
+                          <img id="nutrition-img" src="img/liquid.png" width="50" height="auto"></h4>
+                        </td>
+                        <td align="center">
+                          <h4>1.1
+                          <img id="nutrition-img" src="img/snack.png" width="50" height="auto"></h4>
+                        </td>
+                        <td align="center">
+                          <h4>2.9
+                          <img id="nutrition-img" src="img/food.png" width="50" height="auto"></h4>
+                        </td>
+                      </tr>
                     </table>
                   </div>
                 </div>
@@ -477,6 +484,20 @@
                     <div>
                       <canvas id="sleep-canvas" height="200" width="500"></canvas>
                     </div>
+                    <script>
+                      var chart = c3.generate({
+                          data: {
+                              columns: [
+                                  ['data1', 300, 350, 300, 0, 0, 100],
+                                  ['data2', 130, 100, 140, 200, 150, 50]
+                              ],
+                              types: {
+                                  data1: 'step',
+                                  data2: 'area-step'
+                              }
+                          }
+                      });
+                    </script>
                   </div>
                 </div>
               </div>
