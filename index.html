@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
   </head>
-  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim()">
+  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim()">
 
 <!-- Top bar -->
     <div class="top-bar">
@@ -415,7 +415,7 @@
               <div class="large-6 medium-6 columns"> <!--Nutrition-->
                 <div class="dash-widget">
                   <h6 class="widget-title">Nutrition</h6>
-                  <select>
+                  <select id="nutritionAxis" onchange="nutritionAnim()">
                     <option value="1">Daily</option>
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
@@ -429,20 +429,69 @@
                       </tr> 
                       <tr>
                         <td align="center">
-                          <h4>7.1
+                          <h4><span = id="liquid"></span>
                           <img id="nutrition-img" src="img/liquid.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
-                          <h4>1.1
+                          <h4><span = id="snack"></span>
                           <img id="nutrition-img" src="img/snack.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
-                          <h4>2.9
+                          <h4><span = id="food"></span>
                           <img id="nutrition-img" src="img/food.png" width="50" height="auto"></h4>
                         </td>
                       </tr>
                     </table>
                   </div>
+                  <script>
+                    var food = function (nutritionAxis) {
+                      if (nutritionAxis == 1) {
+                        return 5;
+                      }
+                      else if (nutritionAxis == 7) {
+                        return 3.1;
+                      }
+                      else if (nutritionAxis == 28) {
+                        return 4;
+                      }
+                    }
+                    var liquid = function(nutritionAxis) {
+                      if (nutritionAxis == 1) {
+                        return 8;
+                      }
+                      else if (nutritionAxis == 7) {
+                        return 6;
+                      }
+                      else if (nutritionAxis == 28) {
+                        return 7;
+                      }
+                    }
+                    var snacks = function (nutritionAxis) {
+                      if (nutritionAxis == 1) {
+                        return 1;
+                      }
+                      else if (nutritionAxis == 7) {
+                        return 3;
+                      }
+                      else if (nutritionAxis == 28) {
+                        return 2;
+                      }
+                    }
+
+                    function nutritionAnim () {
+                      var s = document.getElementById ('nutritionAxis');
+                      var nutritionAxis = s.options [s.selectedIndex].value;
+
+                      var foodAvg = food (nutritionAxis);
+                      var liquidsAverage = liquid(nutritionAxis);
+                      var snacksAverage = snacks(nutritionAxis);
+
+                      document.getElementById('liquid').innerHTML = liquidsAverage;
+                      document.getElementById('snack').innerHTML = snacksAverage;
+                      document.getElementById('food').innerHTML = foodAvg;
+
+                    }
+                  </script> 
                 </div>
               </div>
               <div class="large-6 medium-6 columns"> <!--Mood-->
@@ -552,17 +601,59 @@
               <div class="large-4 medium-4 small-4 columns"> <!--Bathroom Habits-->
                 <div class="dash-widget">
                   <h6 class="widget-title">Bathroom Habits</h6>
-                  <select>
+                  <select id="bathroomAxis" onchange="bathroomAnim()">
                     <option value="1">Daily</option>
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
                   <div id= "footer" style="width:100%" align="center">
                     <div>
-                      <h1>6</h1>
-                      <p>times today</p>
+                      <h1><span = id="bathroomFreq"></span></h1>
+                      <p>times <span = id="bathroomTime"></span></p>
                     </div>
                   </div>
+                  <script>
+                    var bathFreq = function () {
+                      var freq;
+                      var s = document.getElementById ('bathroomAxis');
+                      var bAxis = s.options [s.selectedIndex].value;
+
+                      if (bAxis == 1) {
+                        freq = 6;
+                      } 
+                      else if (bAxis == 7) {
+                        freq = 7;
+                      }
+                      else if (bAxis == 28) {
+                        freq = 5;
+                      }
+                      return freq;
+                    }
+                    var bTime = function () {
+                      var timeValue;
+                      var s = document.getElementById ('bathroomAxis');
+                      var bAxis = s.options [s.selectedIndex].value;
+
+                      if (bAxis == 1) {
+                        timeValue = " today";
+                      } 
+                      else if (bAxis == 7) {
+                        timeValue = " on average this week";
+                      }
+                      else if (bAxis == 28) {
+                        timeValue = " on average over 28 days";
+                      }
+                      return timeValue;
+                    }
+
+                    function bathroomAnim() {
+                      var frequency = bathFreq();
+                      var bathTime = bTime();
+                      document.getElementById('bathroomFreq').innerHTML = frequency;
+                      document.getElementById('bathroomTime').innerHTML = bathTime;
+
+                    }
+                  </script>
                 </div>
               </div>
             </div>
@@ -784,16 +875,72 @@
               <div class="large-6 medium-6 columns"> <!--Pain-->
                 <div class="dash-widget">
                   <h6 class="widget-title">Pain</h6>
-                  <select>
+                  <select id="painAxis" onchange="painAnim()">
                     <option value="1">Daily</option>
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div id= "footer" style="width:100%" align="left">
                     <div>
-                      <canvas id="pain-canvas" height="300" width="400"></canvas>
+                      <p>
+                        Top 5 frequent pain points for <span = id="painTime_placeholder"></span>
+                        <ol>
+                          <li><span id="pain_1"></span></li>
+                          <li><span id="pain_2"></span></li>
+                          <li><span id="pain_3"></span></li>
+                          <li><span id="pain_4"></span></li>
+                          <li><span id="pain_5"></span></li>
+                        </ol>
+                      </p>
                     </div>
                   </div>
+                  <script>
+                    var randoingFactor = function(){ return Math.round(Math.random()*100)};
+                    var painLocation = function () {
+                        var s = document.getElementById ('painAxis');
+                        var painAxis = s.options [s.selectedIndex].value;
+                        var temp;
+                        if (painAxis == 1) {
+                            temp = ["Right Foot", "Head", "Lower Back", "Left Thigh", "Right Hip"];
+                        }
+                        else if (painAxis == 7) {
+                            temp = ["Head", "Shoulders", "Knees", "and", "Toes"];
+                        }
+                        else if (painAxis == 28) {
+                            temp = ["Head", "Neck", "Right Arm", "Right Knee", "Right Thigh"]
+                        }
+                        return temp;
+                    };
+                    var painTime = function () {
+                      var timeValue;
+                      var s = document.getElementById ('painAxis');
+                      var painAxis = s.options [s.selectedIndex].value;
+
+                      if (painAxis == 1) {
+                        timeValue = "today";
+                      } 
+                      else if (painAxis == 7) {
+                        timeValue = "the week";
+                      }
+                      else if (painAxis == 28) {
+                        timeValue = "28 days";
+                      }
+                      return timeValue;
+                    }
+
+
+                    function painAnim() {
+                      var pain = painLocation();
+                      var timeValue = painTime();
+                      document.getElementById('painTime_placeholder').innerHTML = timeValue;
+                      document.getElementById('pain_1').innerHTML = pain[0];
+                      document.getElementById('pain_2').innerHTML = pain[1];
+                      document.getElementById('pain_3').innerHTML = pain[2];
+                      document.getElementById('pain_4').innerHTML = pain[3];
+                      document.getElementById('pain_5').innerHTML = pain[4];
+
+                    }
+                    </script>
                 </div>
               </div>
               <div class="large-6 medium-6 columns"> <!--Medication-->
