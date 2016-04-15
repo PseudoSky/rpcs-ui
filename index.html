@@ -208,25 +208,62 @@
                     <option value="28">28 days</option>
                   </select>
                   <div id= "footer" style="width:100%" align="center">
-                    <div>
-                      <canvas id="heartrate-canvas" height="300" width="400"></canvas>
-                    </div>
+                    <div id="heartrate-canvas" height="300" width="400"></div>
                   </div>
-                  <script>
-                    var randoingFactor = function(){ return Math.round(Math.random()*100)};
+                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                  <script type="text/javascript">
+                  // Load the Visualization API and the piechart package.
+                    google.load('visualization', '1.0', {'packages':['corechart']});
+
+                    // Set a callback to run when the Google Visualization API is loaded.
+                    google.setOnLoadCallback(drawLine);
+
+                    // Callback that creates and populates a data table, 
+                    // instantiates the pie chart, passes in the data and
+                    // draws it.
+                    function drawLine() {
+
+                    // Create the data table.
+                    
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Time');
+                    data.addColumn('number', 'Pills');
+                    data.addColumn ('number', 'baseline');
+                    data.addRows([
+                      ['8AM', 69, 72],
+                      ['9AM', 78, 72],
+                      ['10Am', 71, 72],
+                      ['11Am', 74, 72],
+                      ['12AM', 75, 72]
+                    ]);
+
+                    // Set chart options
+                    var options = {'title':'Medication',
+                                    hAxis: {
+                                      title: 'Time',
+                                    },
+                                    vAxis: {
+                                      title: 'Pills'
+                                    },
+                                  };
+                                   
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.LineChart(document.getElementById('heartrate-canvas'));
+                    chart.draw(data, options);
+                  }
                     var label = function () {
-                        var s = document.getElementById ('hrAxis');
-                        var hrAxis = s.options [s.selectedIndex].value;
+                        var s = document.getElementById ('medAxis');
+                        var medAxis = s.options [s.selectedIndex].value;
                         var temp;
-                        if (hrAxis == 1) {
-                            temp = ["8AM","9AM","10AM","11AM","12PM",
-                            "1PM","2PM","3PM", "4PM","5PM",
-                            "6PM","7PM", "8PM", "9PM", "10PM"];
+                        if (medAxis == 1) {
+                            temp = ["8AM","9AM","10AM","11AM","12PM","1PM","2PM","3PM", "4PM",
+                            "5PM", "6PM", "7PM", "8PM", "9PM", "10PM"];
                         }
-                        else if (hrAxis == 7) {
+                        else if (medAxis == 7) {
                             temp = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
                         }
-                        else if (hrAxis == 28) {
+                        else if (medAxis == 28) {
                             temp = ["1","2","3","4","5","6","7", "8", "9", "10", "11",
                             "12", "13", "14","15", "16", "17", "18", "19", "20", "21",
                             "22", "23", "24", "25", "26", "27", "28"];
@@ -234,72 +271,8 @@
                         return temp;
                     };
 
-                    var firstDataSet = function () {
-                        var s = document.getElementById ('hrAxis');
-                        var hrAxis = s.options [s.selectedIndex].value;
-                        var temp;
-                        if (hrAxis == 1) {
-                            temp = Array(15).fill (130); // TODO: replace 130 with baseline
-                        }
-                        else if (hrAxis == 7) {
-                            temp = Array(7).fill (130); // TODO: replace 130 with baseline
-                        }
-                        else if (hrAxis == 28) {
-                            temp = Array(28).fill (130); // TODO: replace 130 with baseline
-                        }
-                        return temp;
-                    };
-
-                    var secondDataSet = function () {
-                        var s = document.getElementById ('hrAxis');
-                        var hrAxis = s.options [s.selectedIndex].value;
-                        var temp;
-                        if (hrAxis == 1) {
-                            temp =  [112, 120, 125, 127, 132, 145, 139, 140,
-                            130, 120, 110, 125, 115, 120, 122]; // TODO: replace with DB data
-                        }
-                        else if (hrAxis == 7) {
-                            temp =  [120, 125, 127, 132, 145, 139, 140];
-                        }
-                        else if (hrAxis == 28) {
-                            temp =  [112, 120, 125, 127, 132, 145, 139, 140,
-                                     130, 120, 110, 125, 115, 120, 122, 120,
-                                     110, 140, 130, 120, 110, 105, 104, 110,
-                                     140, 120, 123, 126]; // TODO: replace with DB data
-                        }
-                        return temp;
-                    };
-
-                    var lineChartData = function() {
-                        var updateLineData = {
-                            labels: label(),
-                            datasets: [{
-                                label: "My First dataset",
-                                fillColor: "rgba(220,220,220,0.2)",
-                                strokeColor: "rgba(220,220,220,1)",
-                                pointColor: "rgba(220,220,220,1)",
-                                pointStrokeColor: "#fff",
-                                pointHighlightFill: "#fff",
-                                pointHighlightStroke: "rgba(220,220,220,1)",
-                                data: firstDataSet()
-                            }, {
-                                label: "My Second dataset",
-                                fillColor: "rgba(220,220,220,0.2)",
-                                strokeColor: "rgba(151,187,205,1)",
-                                pointColor: "rgba(220,220,220,1)",
-                                pointStrokeColor: "#fff",
-                                pointHighlightFill: "#fff",
-                                pointHighlightStroke: "rgba(151,187,205,1)",
-                                data: secondDataSet()
-                            }]
-                        }
-                        return updateLineData;
-                    };
                     function heartrateAnim() {
-                      var ctx = document.getElementById("heartrate-canvas").getContext("2d");
-                      window.heartrate = new Chart(ctx).Line(lineChartData(), {
-                        responsive: true
-                      });
+                      drawLine();
                     }
                   </script>
                 </div>
@@ -952,12 +925,49 @@
                     <option value="28">28 days</option>
                   </select>
                   <div id= "footer" style="width:100%" align="center">
-                    <div>
-                      <canvas id="med-canvas" height="300" width="400"></canvas>
-                    </div>
+                    <div id="med-canvas" height="300" width="400"></div>
                   </div>
-                  <script>
-                    var randomScalingFactor = function(){ return Math.round(Math.random()*10)};
+                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                  <script type="text/javascript">
+                  // Load the Visualization API and the piechart package.
+                    google.load('visualization', '1.0', {'packages':['corechart']});
+
+                    // Set a callback to run when the Google Visualization API is loaded.
+                    google.setOnLoadCallback(drawChart);
+
+                    // Callback that creates and populates a data table, 
+                    // instantiates the pie chart, passes in the data and
+                    // draws it.
+                    function drawChart() {
+
+                    // Create the data table.
+                    
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Time');
+                    data.addColumn('number', 'Pills');
+                    data.addRows([
+                      ['8AM', 3],
+                      ['9AM', 1],
+                      ['10Am', 1],
+                      ['11Am', 1],
+                      ['12AM', 2]
+                    ]);
+
+                    // Set chart options
+                    var options = {'title':'Medication',
+                                    hAxis: {
+                                      title: 'Time',
+                                    },
+                                    vAxis: {
+                                      title: 'Pills'
+                                    },
+                                  };
+                                   
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.ColumnChart(document.getElementById('med-canvas'));
+                    chart.draw(data, options);
+                  }
                     var label = function () {
                         var s = document.getElementById ('medAxis');
                         var medAxis = s.options [s.selectedIndex].value;
@@ -977,60 +987,8 @@
                         return temp;
                     };
 
-
-                    var dataCheck = function () {
-                        var s = document.getElementById ('medAxis');
-                        var medAxis = s.options [s.selectedIndex].value;
-                        var temp;
-                        if (medAxis == 1) {
-                            temp = [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),
-                            randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor()];
-                        }
-                        else if (medAxis == 7) {
-                            temp = [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),
-                            randomScalingFactor()];
-                        }
-                        else if (medAxis == 28) {
-                            temp = [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),
-                            randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor(), randomScalingFactor(), randomScalingFactor(),
-                            randomScalingFactor()];
-                        }
-                        return temp;
-                    };
-
-
-
-                    var barChartData = function () {
-                        var updateChartData = {
-                            labels : label(),
-                            datasets : [
-                                {
-                                fillColor : "rgba(151,187,205,0.5)",
-                                strokeColor : "rgba(151,187,205,0.8)",
-                                highlightFill : "rgba(151,187,205,0.75)",
-                                highlightStroke : "rgba(151,187,205,1)",
-                                data : dataCheck()
-                                }
-                                ]
-                            }
-                        return updateChartData;
-                    };
                     function medicationAnim() {
-                      var ctx1 = document.getElementById("med-canvas").getContext("2d");
-                      window.myBar = new Chart(ctx1).Bar(barChartData(), {
-                        responsive : true
-                      });
+                      drawChart();
                     }
                   </script>
                 </div>
