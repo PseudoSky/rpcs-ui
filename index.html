@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
   </head>
-  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim()">
+  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
 
 <!-- Top bar -->
     <div class="top-bar">
@@ -551,22 +551,39 @@
                     <option value="28">28 days</option>
                   </select>
                   <div id= "footer" style="width:100%" align="center">
-                    <div>
-                      <canvas id="sleep-canvas" height="200" width="500"></canvas>
-                    </div>
-                    <script>
-                      var chart = c3.generate({
-                          data: {
-                              columns: [
-                                  ['data1', 300, 350, 300, 0, 0, 100],
-                                  ['data2', 130, 100, 140, 200, 150, 50]
-                              ],
-                              types: {
-                                  data1: 'step',
-                                  data2: 'area-step'
-                              }
-                          }
-                      });
+                    <div id="timeline" height="200" width="500"></div>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                      google.charts.load('current', {'packages':['timeline']});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                        var container = document.getElementById('timeline');
+                        var chart = new google.visualization.Timeline(container);
+                        var dataTable = new google.visualization.DataTable();
+
+                        dataTable.addColumn({ type: 'string', id: 'Day' });
+                        dataTable.addColumn({ type: 'string', id: 'Level' });
+                        dataTable.addColumn({ type: 'date', id: 'Start' });
+                        dataTable.addColumn({ type: 'date', id: 'End' });
+                        dataTable.addRows([
+                          [ 'Monday', 'Asleep', new Date(0,0,0,23,0,0), new Date(0,0,0,23,45,0) ],
+                          [ 'Monday', 'Awake', new Date(0,0,0,23,45,0), new Date(0,0,1,1,0,0) ],
+                          [ 'Monday', 'Restless', new Date(0,0,1,1,0,0), new Date(0,0,1,6,0,0) ],
+                          [ 'Monday', 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,9,30,0) ],
+                          [ 'Monday', 'Awake', new Date(0,0,1,9,30,0), new Date(0,0,1,10,0,0) ]
+                        ]);
+
+                        var options = {
+                          timeline: { showRowLabels: false },
+                          avoidOverlappingGridLines: false
+                        };
+
+                        chart.draw(dataTable);
+                      }
+
+                      function sleepAnim() {
+                        drawChart();
+                      }
                     </script>
                   </div>
                 </div>
