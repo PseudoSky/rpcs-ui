@@ -469,7 +469,7 @@
               </div>
               <div class="large-6 medium-6 columns"> <!--Mood-->
                 <div class="dash-widget">
-                  <h6 class="widget-title">Mood</h6>
+                  <h6 class="widget-title">Mood&nbsp;<button class="event-lnk" id="myBtn">&#43;</button></h6>
                   <select id="moodAxis" onchange="moodAnim()">
                     <option value="1">Daily</option>
                     <option value="7">7 days</option>
@@ -986,7 +986,56 @@
                 </div>
               </div>
             </div>
+          <!--SAMPLE ONBOARDING - WEIGHT -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">x</span>
+                <h1 class="evnt-header">Tracking Mood</h1>
+                <div class="row small-uncollapse medium-uncollapse large-collapse">
+                  <div class="small-12 columns">
+                    <!-- <p class="evnt-p">Wednesday, April 13th, 2016, 3:00 PM - 5:00 PM</p> -->
+                    <p>Let's get started...</p>
+                    <p>Notify me when:</p>
+                    <input type="checkbox" name="pain1" value="pain1">&nbsp;Patient has felt
+                      <select>
+                        <option value="Bored">Bored</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Hopeless">Hopeless</option>
+                        <option value="Tired">Tired</option>
+                        <option value="Frustrated">Frustrated</option>
+                      </select>
+                    for at least <select>
+                        <option value="7">7</option>
+                        <option value="14">14</option>
+                        <option value="21">21</option>
+                        <option value="28">28</option>
+                      </select>days
+                    </input>
+                    <br/>
+                    <input type="checkbox" name="pain2" value="pain2" checked="checked">&nbsp;Patient has felt increasingly 
+                      <select>
+                        <option value="Bored">Bored</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Hopeless">Hopeless</option>
+                        <option value="Tired">Tired</option>
+                        <option value="Frustrated">Frustrated</option>
+                      </select> for 
+                      <select>
+                        <option value="7">7</option>
+                        <option value="14">14</option>
+                        <option value="21">21</option>
+                        <option value="28">28</option>
+                      </select> days overall
+                    </input>
+                    <br/>
+                    <input type="submit" value="Save" style="float: left;"></input>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div><br>
         </div>
       </div>
