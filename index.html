@@ -583,23 +583,75 @@
                         return timeValue;
                       }
 
+                      var generateLevels = function () {
+                        var levelValues = new Array(5);
+                        var levelArray = new Array(1);
+                        levelArray[0] = levelValues;
+                        var s = document.getElementById ('sleepAxis');
+                        var sleepAxis = s.options [s.selectedIndex].value;
+                        var timeValue = timeVal();
+
+                        if (sleepAxis == 1) {
+                          levelArray = [
+                            [ timeValue, 'Asleep', new Date(0,0,0,23,0,0), new Date(0,0,0,23,45,0) ],
+                            [ timeValue, 'Awake', new Date(0,0,0,23,45,0), new Date(0,0,1,1,0,0) ],
+                            [ timeValue, 'Restless', new Date(0,0,1,1,0,0), new Date(0,0,1,6,0,0) ],
+                            [ timeValue, 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,9,30,0) ],
+                            [ timeValue, 'Awake', new Date(0,0,1,9,30,0), new Date(0,0,1,10,0,0) ]
+                          ]
+                        }
+                        else if (sleepAxis == 7) {
+                          levelArray = [
+                            [ 'Monday', 'Restless', new Date(0,0,1,0,0,0), new Date(0,0,1,3,45,0) ],
+                            [ 'Monday', 'Awake', new Date(0,0,1,3,45,0), new Date(0,0,1,4,0,0) ],
+                            [ 'Monday', 'Restless', new Date(0,0,1,4,0,0), new Date(0,0,1,6,0,0) ],
+                            [ 'Monday', 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,8,30,0) ],
+                            [ 'Monday', 'Awake', new Date(0,0,1,8,30,0), new Date(0,0,1,9,0,0) ],
+                            [ 'Tuesday', 'Awake', new Date(0,0,0,22,0,0), new Date(0,0,0,23,45,0) ],
+                            [ 'Tuesday', 'Asleep', new Date(0,0,0,23,45,0), new Date(0,0,1,3,0,0) ],
+                            [ 'Tuesday', 'Restless', new Date(0,0,1,3,0,0), new Date(0,0,1,7,0,0) ],
+                            [ 'Tuesday', 'Awake', new Date(0,0,1,7,0,0), new Date(0,0,1,9,30,0) ],
+                            [ 'Tuesday', 'Restless', new Date(0,0,1,9,30,0), new Date(0,0,1,9,45,0) ],
+                            [ 'Wednesday', 'Restless', new Date(0,0,1,0,0,0), new Date(0,0,1,3,45,0) ],
+                            [ 'Wednesday', 'Awake', new Date(0,0,1,3,45,0), new Date(0,0,1,4,0,0) ],
+                            [ 'Wednesday', 'Restless', new Date(0,0,1,4,0,0), new Date(0,0,1,6,0,0) ],
+                            [ 'Wednesday', 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,8,30,0) ],
+                            [ 'Wednesday', 'Awake', new Date(0,0,1,8,30,0), new Date(0,0,1,9,0,0) ],
+                            [ 'Thursday', 'Awake', new Date(0,0,0,22,0,0), new Date(0,0,0,23,45,0) ],
+                            [ 'Thursday', 'Asleep', new Date(0,0,0,23,45,0), new Date(0,0,1,3,0,0) ],
+                            [ 'Thursday', 'Restless', new Date(0,0,1,3,0,0), new Date(0,0,1,7,0,0) ],
+                            [ 'Thursday', 'Awake', new Date(0,0,1,7,0,0), new Date(0,0,1,9,30,0) ],
+                            [ 'Thursday', 'Restless', new Date(0,0,1,9,30,0), new Date(0,0,1,9,45,0) ],
+                            [ 'Friday', 'Restless', new Date(0,0,1,0,0,0), new Date(0,0,1,3,45,0) ],
+                            [ 'Friday', 'Awake', new Date(0,0,1,3,45,0), new Date(0,0,1,4,0,0) ],
+                            [ 'Friday', 'Restless', new Date(0,0,1,4,0,0), new Date(0,0,1,6,0,0) ],
+                            [ 'Friday', 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,8,30,0) ],
+                            [ 'Friday', 'Awake', new Date(0,0,1,8,30,0), new Date(0,0,1,9,0,0) ]
+                          ]
+                        }
+                        else if (sleepAxis == 28) {
+                          levelArray = [
+                            [ timeValue, 'Awake', new Date(0,0,0,22,0,0), new Date(0,0,0,23,45,0) ],
+                            [ timeValue, 'Asleep', new Date(0,0,0,23,45,0), new Date(0,0,1,3,0,0) ],
+                            [ timeValue, 'Restless', new Date(0,0,1,3,0,0), new Date(0,0,1,7,0,0) ],
+                            [ timeValue, 'Awake', new Date(0,0,1,7,0,0), new Date(0,0,1,9,30,0) ],
+                            [ timeValue, 'Restless', new Date(0,0,1,9,30,0), new Date(0,0,1,9,45,0) ]
+                          ]
+                        }
+                        return levelArray;
+                      }
+
                       function drawChart() {
                         var container = document.getElementById('timeline');
                         var chart = new google.visualization.Timeline(container);
                         var dataTable = new google.visualization.DataTable();
-                        var timeValue = timeVal();
+                        var levelArray = generateLevels();
 
                         dataTable.addColumn({ type: 'string', id: 'Day' });
                         dataTable.addColumn({ type: 'string', id: 'Level' });
                         dataTable.addColumn({ type: 'date', id: 'Start' });
                         dataTable.addColumn({ type: 'date', id: 'End' });
-                        dataTable.addRows([
-                          [ timeValue, 'Asleep', new Date(0,0,0,23,0,0), new Date(0,0,0,23,45,0) ],
-                          [ timeValue, 'Awake', new Date(0,0,0,23,45,0), new Date(0,0,1,1,0,0) ],
-                          [ timeValue, 'Restless', new Date(0,0,1,1,0,0), new Date(0,0,1,6,0,0) ],
-                          [ timeValue, 'Asleep', new Date(0,0,1,6,0,0), new Date(0,0,1,9,30,0) ],
-                          [ timeValue, 'Awake', new Date(0,0,1,9,30,0), new Date(0,0,1,10,0,0) ]
-                        ]);
+                        dataTable.addRows(levelArray);
 
                         var options = {
                           timeline: { showRowLabels: false },
