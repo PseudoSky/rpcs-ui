@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="css/app.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+          google.charts.load('current', {packages: ['corechart', 'timeline']});
+          google.charts.setOnLoadCallback(drawChart);
+          google.charts.setOnLoadCallback(drawMedChart);
+          google.charts.setOnLoadCallback(drawSocialActivity);
+          google.charts.setOnLoadCallback(drawPhysicalActivity);
+          google.charts.setOnLoadCallback(drawHeartRate);
+          google.charts.setOnLoadCallback(drawWeight);
+        </script>
   </head>
   <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
 
@@ -198,7 +208,7 @@
             <!-- ENTER WIDGETS INSIDE THIS DIV -->
             <div class="row"><br></div>
 
-            <div class="row"> 
+            <div class="row">
               <div class="large-6 medium-6 small-6 columns"> <!--Heart Rate-->
                 <div class="dash-widget">
                   <h6 class="widget-title">Heart Rate</h6>
@@ -213,18 +223,18 @@
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
-                    google.load('visualization', '1.0', {'packages':['corechart']});
+                    //google.load('visualization', '1.0', {'packages':['corechart']});
 
                     // Set a callback to run when the Google Visualization API is loaded.
-                    google.setOnLoadCallback(drawHeartRate);
+                    //google.setOnLoadCallback(drawHeartRate);
 
-                    // Callback that creates and populates a data table, 
+                    // Callback that creates and populates a data table,
                     // instantiates the pie chart, passes in the data and
                     // draws it.
                     function drawHeartRate() {
 
                     // Create the data table.
-                    
+
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'HeartRate');
@@ -271,7 +281,7 @@
                       }
 
                       data.addRows(rows);
-                   
+
 
                     // Set chart options
                     var options = {'title':'Heart Rate',
@@ -282,7 +292,7 @@
                                       title: 'BPM'
                                     },
                                   };
-                                   
+
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.LineChart(document.getElementById('heartrate-canvas'));
@@ -308,17 +318,17 @@
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
-                    google.load('visualization', '1.0', {'packages':['corechart']});
-                    google.setOnLoadCallback(drawWeight);
+                    //google.load('visualization', '1.0', {'packages':['corechart']});
+                    //google.setOnLoadCallback(drawWeight);
 
 
-                    // Callback that creates and populates a data table, 
+                    // Callback that creates and populates a data table,
                     // instantiates the pie chart, passes in the data and
                     // draws it.
                     function drawWeight() {
 
                     // Create the data table.
-                    
+
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Weight');
@@ -370,7 +380,7 @@
                                       title: 'lbs'
                                     },
                                   };
-                                   
+
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.LineChart(document.getElementById('weight-canvas'));
@@ -399,7 +409,7 @@
                         <td align="center">average liquids</td>
                         <td align="center">average snacks</td>
                         <td align="center">average meals</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td align="center">
                           <h4><span = id="liquid"></span>
@@ -464,7 +474,7 @@
                       document.getElementById('food').innerHTML = foodAvg;
 
                     }
-                  </script> 
+                  </script>
                 </div>
               </div>
               <div class="large-6 medium-6 columns"> <!--Mood-->
@@ -513,7 +523,7 @@
 
                       if (moodAxis == 1) {
                         timeValue = "today";
-                      } 
+                      }
                       else if (moodAxis == 7) {
                         timeValue = "the week";
                       }
@@ -554,8 +564,8 @@
                     <div id="timeline" height="200" width="500"></div>
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
-                      google.charts.load('current', {'packages':['timeline']});
-                      google.charts.setOnLoadCallback(drawChart);
+                      //google.charts.load('current', {'packages':['timeline']});
+                      //google.charts.setOnLoadCallback(drawChart);
                       function drawChart() {
                         var container = document.getElementById('timeline');
                         var chart = new google.visualization.Timeline(container);
@@ -610,7 +620,7 @@
 
                       if (bAxis == 1) {
                         freq = 6;
-                      } 
+                      }
                       else if (bAxis == 7) {
                         freq = 7;
                       }
@@ -626,7 +636,7 @@
 
                       if (bAxis == 1) {
                         timeValue = " today";
-                      } 
+                      }
                       else if (bAxis == 7) {
                         timeValue = " on average this week";
                       }
@@ -648,7 +658,7 @@
               </div>
             </div>
 
-            <div class="row"> 
+            <div class="row">
               <div class="large-6 medium-6 columns"> <!--Phys Activity-->
                 <div class="dash-widget">
                   <h6 class="widget-title">Physical Activity</h6>
@@ -663,17 +673,17 @@
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
-                    google.load('visualization', '1.0', {'packages':['corechart']});
-                    google.setOnLoadCallback(drawPhysicalActivity);
+                    //google.load('visualization', '1.0', {'packages':['corechart']});
+                    //google.setOnLoadCallback(drawPhysicalActivity);
 
 
-                    // Callback that creates and populates a data table, 
+                    // Callback that creates and populates a data table,
                     // instantiates the pie chart, passes in the data and
                     // draws it.
                     function drawPhysicalActivity() {
 
                     // Create the data table.
-                    
+
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Steps');
@@ -724,7 +734,7 @@
                                       title: 'Steps'
                                     },
                                   };
-                                   
+
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.LineChart(document.getElementById('physical-canvas'));
@@ -750,17 +760,17 @@
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
-                    google.load('visualization', '1.0', {'packages':['corechart']});
-                    google.setOnLoadCallback(drawSocialActivity);
+                    //google.load('visualization', '1.0', {'packages':['corechart']});
+                    //google.setOnLoadCallback(drawSocialActivity);
 
 
-                    // Callback that creates and populates a data table, 
+                    // Callback that creates and populates a data table,
                     // instantiates the pie chart, passes in the data and
                     // draws it.
                     function drawSocialActivity() {
 
                     // Create the data table.
-                    
+
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Social Score');
@@ -812,7 +822,7 @@
                                       title: 'Social Score'
                                     },
                                   };
-                                   
+
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.LineChart(document.getElementById('social-canvas'));
@@ -872,7 +882,7 @@
 
                       if (painAxis == 1) {
                         timeValue = "today";
-                      } 
+                      }
                       else if (painAxis == 7) {
                         timeValue = "the week";
                       }
@@ -911,18 +921,18 @@
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
-                    google.load('visualization', '1.0', {'packages':['corechart']});
+                    //google.load('visualization', '1.0', {'packages':['corechart']});
 
                     // Set a callback to run when the Google Visualization API is loaded.
-                    google.setOnLoadCallback(drawChart);
+                    //google.setOnLoadCallback(drawMedChart);
 
-                    // Callback that creates and populates a data table, 
+                    // Callback that creates and populates a data table,
                     // instantiates the pie chart, passes in the data and
                     // draws it.
-                    function drawChart() {
+                    function drawMedChart() {
 
                     // Create the data table.
-                    
+
                       var data = new google.visualization.DataTable();
                       data.addColumn('string', 'Time');
                       data.addColumn('number', 'Pills');
@@ -962,7 +972,7 @@
                       }
 
                       data.addRows (rows);
-                    
+
 
                     // Set chart options
                     var options = {'title':'Medication',
@@ -973,14 +983,14 @@
                                       title: 'Pills'
                                     },
                                   };
-                                   
+
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('med-canvas'));
                     chart.draw(data, options);
                   }
                     function medicationAnim() {
-                      drawChart();
+                      drawMedChart();
                     }
                   </script>
                 </div>
