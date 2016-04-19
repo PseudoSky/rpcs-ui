@@ -374,4 +374,99 @@ a.event-lnk {
 	padding: 0px 15px 0 20px;
 }
 
+.date-row-top {
+	background-color: #18456b;
+	padding: 3px 5px;
+	border-right: 1px solid #ffffff;
+	border-bottom: 1px solid #18456b;
+	color: #ffffff;
+	text-align: center;
+}
+
+.all-day-row {
+	padding: 10px 5px;
+	border-bottom: 3px solid #e6e6e6;
+	color: #666666;
+	text-align: center;
+}
+
+.date-row {
+	padding: 3px 5px;
+	border-bottom: 1px solid #e6e6e6;
+	color: #666666;
+	text-align: center;
+}
+
+.time-row {
+	padding: 3px 5px;
+	text-align: center;
+	border-bottom: 1px solid #e6e6e6;
+}
+
 /*SCHEDULE PAGE END */
+
+/*ONBOARDING PAGE */
+
+.tabs-verticial-header
+{
+	font-size: 18pt;
+	font-weight: lighter;
+	font-family: Source Sans Pro;
+	color:#ff8065;
+}
+
+.metrics-set-up-header
+{
+	margin-left: -10px;
+	padding: 5px 10px;
+	font-size: 14pt;
+	background-color: #fbe9e7;
+	color: #58595b;
+	font-weight: bold;
+	font-family: Source Sans Pro;
+}
+
+#tabs-vertical-onboarding-main
+{
+	padding-left: 15px;
+	background-color: #ffffff;
+	border: none;
+}
+
+.tabs.vertical{
+	background-color: #f4f3f5;
+	border: none;
+}
+
+.tabs.vertical > li 
+{
+	border-bottom: 1px solid #e6e6e6;
+	background-color: transparent;
+}
+
+.tabs-title > a
+{
+	color:#666666;
+	font-size: 10pt;
+}
+
+.tabs.vertical .tabs-title > a:hover
+{
+	background-color:#fbe9e7;
+}
+
+.metrics-header5
+{
+	padding: 20px 0 10px 0;
+	font-family: Source Sans Pro;
+	font-weight: bold;
+	font-size: 12pt;
+	color: #18456B;
+}
+
+#heart-rate-onboarding-data
+{
+	background-color: #18456B
+}
+
+/*END ONBOARDING PAGE */
