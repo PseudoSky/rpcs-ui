@@ -10,6 +10,11 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
     <script src="Chart.js"></script>
+    <link rel='stylesheet' href='css/fullcalendar/fullcalendar.css' />
+
+
+
+    
   </head>
   <body>
 
@@ -17,13 +22,13 @@
     <div class="top-bar">
       <div class="top-bar-title">
         <img id="bird-img" width="40" height="auto" src="img/BEC.png">
-        <font id="title"><a href="home-index.h" id="title">BIRD'S EYE CARE</a></font>
+        <font id="title"><a href="index.html" id="title">BIRD'S EYE CARE</a></font>
       </div>
       <div class="top-bar-left">
         <ul class="menu">
           <li><a class="top-text" href="my-members.html">My members</a></li>
           <li><a class="top-text" href="#">Schedule</a></li>
-          <li><a class="top-text" href="#">Collaboration</a></li>
+          <li><a class="top-text" href="home-index.html">Collaboration</a></li>
           <li><a class="top-text" href="#">Settings</a></li>
         </ul>
       </div>
@@ -40,394 +45,141 @@
     <!--Main Code-->
         <!--Member Alerts-->
         <p class="section-header">Sally's Schedule</p><hr>     
-        <!--CONTAINER ROW-->
-          <div class="row small-uncollapse medium-collapse large-uncollapse">
-            <!--Month column-->
-            <div class="large-7 columns">
-              <div class="row small-up-1 ">
-                <div class="column">
-                  <p class="cal-nav">
-                  <a class="cal-title" href="#">&lt;</a>APRIL 2016<a class="cal-title" href="#">&gt;</a>
-                  </p>
-                </div>
-              </div>
-            <!--DAYS ROW-->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <p id="cal-day">Sun</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Mon</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Tue</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Wed</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Thu</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Fri</p>
-                </div>
-                <div class="column">
-                  <p id="cal-day">Sat</p>
-                </div>
-              </div>
-              <!--WEEK 1 ROW -->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number-inactive">27</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number-inactive">28</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number-inactive">29</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number-inactive">30</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number-inactive">31</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">1</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">2</p>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-            <!--WEEK 2 ROW -->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">3</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">4</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">5</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">6</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">7</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">8</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">9</p>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-            <!--WEEK 3 ROW-->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">10</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">11</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">12</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container-today">
-                    <p id="cal-number-today">13</p>
-                    <p id="cal-number-today-text">Today</p>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">14</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">15</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">16</p>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-              <!--WEEK 4 ROW-->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">17</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">18</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">19</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">20</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">21</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">22</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">23</p>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-              <!--WEEK 5 ROW-->
-              <div class="row small-up-7 small-collapse medium-collapse large-collapse">
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">24</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">25</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">26</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">27</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">28</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">29</p>
-                    <br/>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="cal-day-container">
-                    <p id="cal-number">30</p>
-                    <br/>
-                  </div>
-                </div>
-              </div><br/>
-              <!--END WEEK ROWS-->
-            </div>
-            <!--AGENDA SIDE -->
-            <div class="large-5 columns">
-              <div class="agenda-container">
-                <!--AGENDA HEADER ROW-->
-                <div class="row small-collapse medium-collapse large-collapse">
-                  <div class="small-10 columns">
-                    <div class="agenda-header">Wed, April 13, 2016</div>
-                  </div>
-                  <div class="small-2 columns">
-                    <div class="add-agenda-event">+</div>
-                  </div>
-                </div>
-                <!--DAY ROW CONTAINER-->
-                <div class="row small-collapse medium-collapse large-collapse">
-                  <div class="small-12 columns">
-                    <div class="agenda-row-container">
-                      <!--ROW 1-->
-                      <div class="row small-collapse medium-collapse large-collapse">
-                        <div class="small-2 columns">
-                          <div class="agenda-row-date">10:00am</div>
-                        </div>
-                        <div class="small-10 columns">
-                          <div class="agenda-row-event"><a class="event-lnk" href="#">Care coordinator catch-up meeting</a><br/><br/><br/><br/><br/></div>
-                        </div>
-                      </div>
-                      <!--ROW 2-->
-                      <div class="row small-collapse medium-collapse large-collapse">
-                        <div class="small-2 columns">
-                          <div class="agenda-row-date">12:00pm</div>
-                        </div>
-                        <div class="small-10 columns">
-                          <div class="agenda-row-event"><a class="event-lnk" href="#">Check-in call with Debbie</a><br/><br/></div>
-                        </div>
-                      </div>
-                      <!--ROW 3-->
-                      <div class="row small-collapse medium-collapse large-collapse">
-                        <div class="small-2 columns">
-                          <div class="agenda-row-date">03:00pm</div>
-                        </div>
-                        <div class="small-10 columns">
-                          <div class="agenda-row-event"><button class="event-lnk" id="myBtn">Home visit with Ester Rohbark</button><br/><br/><br/><br/></div>
-                        </div>
-                      </div>
-                      <!--ROW 4-->
-                      <div class="row small-collapse medium-collapse large-collapse">
-                        <div class="small-2 columns">
-                          <div class="agenda-row-date">05:00pm</div>
-                        </div>
-                        <div class="small-10 columns">
-                          <div class="agenda-row-event"><a class="event-lnk" href="#">Meeting with Sandy, Care Coordinator</a><br/><br/><br/></div>
-                        </div>
-                      </div>
-                      <!--END OF ROW-->
-                    </div>
-                  </div>
-                </div>
-                <!--END AGENDA-->
-              </div>
-            </div>
-          </div>
-          <!--Close row-->
+        <!--div that loads the full calendar-->
+        <div id='calendar'></div>
+        <!--Add a space-->
         <div> <br/></div>
     </div>
-
-    <!--SAMPLE EVENT START -->
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">x</span>
-            <h1 class="evnt-header">Home visit with Ester Rohbark</h1>
-            <div class="row small-uncollapse medium-uncollapse large-collapse">
-              <div class="small-1 columns">
-                <img src="img/schedule/dt-icon-orange.png" class="evnt-img">
-              </div>
-              <div class="small-11 columns">
-                <p class="evnt-p">Wednesday, April 13th, 2016, 3:00 PM - 5:00 PM</p>
-              </div>
-            </div>
-            <hr class="evnt-hr">
-            <div class="row small-uncollapse medium-collapse large-collapse">
-              <div class="small-1 columns">
-                <img src="img/schedule/loc-icon-orange.png" class="evnt-img">
-              </div>
-              <div class="small-11 columns">
-                <p class="evnt-p">1234 Main Street<br/>Pittsburgh, PA 15123</p>
-              </div>
-            </div>
-            <hr class="evnt-hr">
-            <div class="row small-uncollapse medium-collapse large-collapse">
-              <div class="small-1 columns">
-                <img src="img/schedule/people-icon-orange.png" class="evnt-img">
-              </div>
-              <div class="small-11 columns">
-                <p class="evnt-p"><a href="index.html">Ester Rohbark</a><br/>412-254-2048</p>
-              </div>
-            </div>
-            <hr class="evnt-hr">
-            <div class="row small-uncollapse medium-collapse large-collapse">
-              <div class="small-1 columns">
-                <img src="img/schedule/descr-icon-orange.png" class="evnt-img">
-              </div>
-              <div class="small-11 columns">
-                <p class="evnt-p">Monthly check-in with our member, Ester, and her husband, Scott.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-    <div> <br/></div>
   </div>
-
-
+<!--Start JS-->
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery.sticky.js"></script>
 
+    <script src='js/fullcalendar/lib/jquery.min.js'></script>
+    <script src='js/fullcalendar/lib/moment.min.js'></script>
+    <script src='js/fullcalendar/fullcalendar.js'></script>
+    <script type='text/javascript' src='js/fullcalendar/gcal.js'></script>
+
+
+
+    <!--FULL CALENDAR SCRIPT -->
     <script>
     var d = new Date();
     document.getElementById("demo").innerHTML = d.toDateString();
     </script>
+
+    <script>
+      $(document).ready(function() {
+      // page is now ready, initialize the calendar...
+          $('#calendar').fullCalendar({
+      // put your options and callbacks here
+            header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay'
+            }, //end header
+
+            //start actions
+
+            //start views
+            //defaultDate: '2016-04-20',
+            defaultView: 'agendaWeek',
+            eventLimit: true,
+            //eventColor: '#378006' ,
+
+            //display active business hours
+            businessHours: 'true' ,
+            scrollTime: '09:00' ,
+
+            eventSources: [
+              //gCal
+              /*{
+                googleCalendarApiKey: 'AIzaSyA3vVKUb6JW7KHqfQhuQ3ZFajCB9VwGfWw',
+                googleCalendarId: 'sally.hanson.cc@gmail.com'
+
+              }*/
+
+              //Demo event
+              {
+                events:[
+                  {
+                  title: 'Funding deadline',
+                  start: '2016-04-19',
+                  description:'this works'
+                  },
+                  {
+                  title: 'Meeting',
+                  start: '2016-04-22T10:30:00',
+                  end: '2016-04-22T12:30:00',
+                  description:'this works'
+                  },
+                  {
+                  title: 'CC Meeting',
+                  start: '2016-04-20T09:00:00',
+                  end: '2016-04-20T10:00:00'
+                  },
+                  {
+                  title: 'Call with John',
+                  start: '2016-04-20T11:00:00',
+                  end: '2016-04-20T11:30:00'
+                  },
+                   {
+                  title: 'Meeting with Josh',
+                  start: '2016-04-20T12:00:00',
+                  end: '2016-04-20T12:45:00'
+                  },
+                  {
+                  title: 'Home visit with Ester Rohbark',
+                  url: 'index.html',
+                  start: '2016-04-20T13:30:00',
+                  end: '2016-04-20T15:30:00'
+                  }
+                ]
+              }
+
+            ] ,
+
+            //event click action
+            /*eventClick: function(calEvent, jsEvent, view) {
+
+              var myWindow = window.open("", "MsgWindow", "titlebar=no,toolbar=no,scrollbars=yes,status=no,resizable=yes,top=450,left=700,width=200,height=100");
+              myWindow.document.write("<span style='color:green'>This is MsgWindow.I am 200px wide and 100px tall!</span>");
+              myWindow.document.write("title: "+calEvent.title+calEvent.description);
+
+              // change the border color just for fun
+              //$(this).css('border-color', 'red');
+
+            }*/
+
+
+            /*//Demo event
+            events: [
+            {
+              title: 'Meeting',
+              start: '2016-01-12T10:30:00',
+              end: '2016-01-12T12:30:00'
+            }
+
+            ]*/
+
+            //start gcal
+            /*googleCalendarApiKey: 'AIzaSyA3vVKUb6JW7KHqfQhuQ3ZFajCB9VwGfWw',
+            events: {
+            googleCalendarId: 'sally.hanson.cc@gmail.com'
+            }*/
+             //end events
+
+
+
+
+          }); //end full cal
+      }); //end document
+    </script>
+
+    
 
   </body>
 </html>
