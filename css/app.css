@@ -307,6 +307,7 @@ a.event-lnk {
 
 /*ONBOARDING PAGE */
 
+
 .tabs-verticial-header
 {
 	font-size: 18pt;
@@ -333,7 +334,7 @@ a.event-lnk {
 	border: none;
 }
 
-.tabs.vertical{
+.settings-ob-tabs {
 	background-color: #f4f3f5;
 	border: none;
 }
@@ -357,16 +358,66 @@ a.event-lnk {
 
 .metrics-header5
 {
-	padding: 20px 0 10px 0;
+	padding: 15px 0 0 0;
+	margin-bottom: -10px;
 	font-family: Source Sans Pro;
 	font-weight: bold;
 	font-size: 12pt;
 	color: #18456B;
 }
 
-#heart-rate-onboarding-data
+.ob-button
 {
-	background-color: #18456B
+	background-color: #18456B;
+}
+
+/*accordion styles*/
+.ob-accordion 
+{
+	border: none;
+}
+
+.ob-accordion-title 
+{
+	color: #58595b;
+	background-color: #fbe9e7;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+a.ob-accordion-title:focus
+{
+	color: #ff8065;
+	background-color: #fbe9e7;
 }
 
 /*END ONBOARDING PAGE */
+
+
+/*START SETTINGS PAGE */
+
+.settings-vert-tabs {
+	background-color: #ffffff;
+	border: none;
+}
+
+.tabs-title > a
+{
+	color:#18456B;
+	font-size: 10pt;
+}
+
+.tabs.vertical .tabs-title > a:hover
+{
+	background-color:#fbe9e7;
+}
+
+
+.tabs-settings-page
+{
+
+}
+
+
+/*END SETTINGS PAGE */
+
