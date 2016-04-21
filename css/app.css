@@ -12,6 +12,7 @@ a:hover {
 .top-bar {
 	background-color: white !important;
 	border-bottom: solid #D3D3D3 !important;
+	z-index: 1;
 }
 
 .menu {
@@ -19,8 +20,8 @@ a:hover {
 }
 
 #bird-img {
-	margin-right: 15px;
-	margin-left: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #cc-img {
@@ -98,6 +99,10 @@ a:hover {
 .widget-title {
 	color: #f86d57;
 	font-weight: 600;
+}
+
+#heartrate-canvas {
+	z-index: -1;
 }
 
 /* HOME PAGE START*/
