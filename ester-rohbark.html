@@ -247,7 +247,7 @@
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'HeartRate');
-                    data.addColumn ('number', 'baseline');
+                    data.addColumn ('number', 'Baseline');
 
                     var times;
                     var values;
@@ -293,7 +293,7 @@
 
 
                     // Set chart options
-                    var options = {'title':'Heart Rate',
+                    var options = { legend: {'position':'top', 'alignment':'center'},
                                     hAxis: {
                                       title: 'Time',
                                     },
@@ -341,7 +341,7 @@
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Weight');
-                    data.addColumn ('number', 'baseline');
+                    data.addColumn ('number', 'Baseline');
                     var s = document.getElementById ('weightAxis');
                     var weightAxis = s.options [s.selectedIndex].value;
 
@@ -381,7 +381,7 @@
                       data.addRows(rows);
 
                     // Set chart options
-                    var options = {'title':'Weight',
+                    var options = { legend: {'position':'top', 'alignment':'center'},
                                     hAxis: {
                                       title: 'Time',
                                     },
@@ -766,7 +766,7 @@
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Steps');
-                    data.addColumn ('number', 'baseline');
+                    data.addColumn ('number', 'Baseline');
                     var s = document.getElementById ('paAxis');
                     var paAxis = s.options [s.selectedIndex].value;
 
@@ -805,7 +805,7 @@
 
                       data.addRows(rows);
                     // Set chart options
-                    var options = {'title':'Physical Activity',
+                    var options = { legend: {'position':'top', 'alignment':'center'},
                                     hAxis: {
                                       title: 'Time',
                                     },
@@ -853,7 +853,7 @@
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
                     data.addColumn('number', 'Social Score');
-                    data.addColumn ('number', 'baseline');
+                    data.addColumn ('number', 'Baseline');
                     var s = document.getElementById ('saAxis');
                     var saAxis = s.options [s.selectedIndex].value;
 
@@ -893,7 +893,7 @@
                       data.addRows(rows);
 
                     // Set chart options
-                    var options = {'title':'Social Activity',
+                    var options = { legend: {'position':'top', 'alignment':'center'},
                                     hAxis: {
                                       title: 'Time',
                                     },
@@ -1054,7 +1054,7 @@
 
 
                     // Set chart options
-                    var options = {'title':'Medication',
+                    var options = { legend: {'position':'top', 'alignment':'center'},
                                     hAxis: {
                                       title: 'Time',
                                     },
