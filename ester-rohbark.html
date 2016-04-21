@@ -20,7 +20,8 @@
           google.charts.setOnLoadCallback(drawWeight);
         </script>
   </head>
-  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
+  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();"
+    onresize="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
 
 <!-- Top bar -->
     <div class="top-bar">
@@ -387,7 +388,7 @@
                                     },
                                     vAxis: {
                                       title: 'lbs'
-                                    },
+                                    }
                                   };
 
 
