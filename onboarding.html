@@ -23,7 +23,7 @@
         <ul class="menu">
           <li><a class="top-text" href="my-members.html">My members</a></li>
           <li><a class="top-text" href="schedule.html">Schedule</a></li>
-          <li><a class="top-text" href="#">Settings</a></li>
+          <li><a class="top-text" href="settings.html">Settings</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -46,15 +46,13 @@
       </ul>
     </nav>
 
-      <!--<p class="section-header">Set Up</p><hr>-->
-      <!--padding container-->
-      <div style="padding: 0 15px">      
-          
+      <!--Padding container-->
+      <div style="padding: 0 15px">                
 
         <!--Start vertical tabs-->
         <div class="row collapse">
         <div class="medium-3 columns">
-          <ul class="tabs vertical" id="example-vert-tabs" data-tabs data-options="data-match-height:true">
+          <ul class="tabs vertical settings-ob-tabs" id="example-vert-tabs" data-tabs data-options="data-match-height:true">
             <li class="tabs-title"><a href="#panel1v" aria-selected="true">Demographics</a></li>
             <li class="tabs-title"><a href="#panel2v">Measurements</a></li>
             <li class="tabs-title"><a href="#panel3v">Medical History</a></li>
@@ -75,139 +73,362 @@
               <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p><p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
             </div>
             <div class="tabs-panel" id="panel3v">
-              <img class="thumbnail" src="assets/img/generic/rectangle-3.jpg">
+              <img class="thumbnail" src="img/woman-1.png">
             </div>
             <div class="tabs-panel" id="panel4v">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="tabs-panel" id="panel5v">
-              <!--Testing accordian -->
-
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="tabs-panel is-active" id="panel6v">
               <h2 id="heart-rate" class="tabs-verticial-header">Dashboard</h2>
-              <p style="color:#666666;">Set up metrics tracking for each dashboard widget below.<br/><br/></p>
-              <!--start list-->
-                <div><h3 class="metrics-set-up-header">Heart Rate</h3></div>
-                <div>
-                  <form action="demo_form.asp" method="get">
-                    <h5 class="metrics-header5">Baseline Heart Rates</h5>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label>Peak Heart Rate: </label>
-                          <select>
-                            <option value="1">100-130</option>
-                            <option value="2">130-180</option>
-                            <option value="3">180-220</option>
-                          </select>
-                      </div>
-                      <div class="medium-4 columns">
-                        <label>Cardio Heart Rate:</label>
-                          <select>
-                            <option value="1">100-130</option>
-                            <option value="2">130-180</option>
-                            <option value="3">180-220</option>
-                          </select>
-                      </div>
-                      <div class="medium-4 columns">
-                        <label>Fat Burn: </label>
-                          <select>
-                            <option value="1">100-130</option>
-                            <option value="2">130-180</option>
-                            <option value="3">180-220</option>
-                          </select>
-                      </div>
+              <p style="color:#666666;">Set up metrics tracking for each dashboard widget below.  <br/></p>
+              <!--Testing accordian -->
+                <ul class="accordion ob-accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+                  <!-- Heart Rate -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Heart Rate</a>
+                    <div class="accordion-content" data-tab-content>
+                      <div>
+                          <form action="demo_form.asp" method="get">
+                            <h5 class="metrics-header5">Set Baseline Heart Rates</h5><hr>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label>Peak Heart Rate: </label>
+                                  <select>
+                                    <option value="1">100-130</option>
+                                    <option value="2">130-180</option>
+                                    <option value="3">180-220</option>
+                                  </select>
+                              </div>
+                              <div class="medium-4 columns">
+                                <label>Cardio Heart Rate:</label>
+                                  <select>
+                                    <option value="1">100-130</option>
+                                    <option value="2">130-180</option>
+                                    <option value="3">180-220</option>
+                                  </select>
+                              </div>
+                              <div class="medium-4 columns">
+                                <label>Fat Burn: </label>
+                                  <select>
+                                    <option value="1">100-130</option>
+                                    <option value="2">130-180</option>
+                                    <option value="3">180-220</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label>Normal:</label>
+                                  <select>
+                                    <option value="1">100-130</option>
+                                    <option value="2">130-180</option>
+                                    <option value="3">180-220</option>
+                                  </select>
+                              </div>
+                              <div class="medium-4 columns">
+                                <label>Below Normal:</label>
+                                  <select>
+                                    <option value="1">100-130</option>
+                                    <option value="2">130-180</option>
+                                    <option value="3">180-220</option>
+                                  </select>  
+                              </div>
+                              <div class="medium-4 columns">
+                                &nbsp;
+                              </div>
+                            </div>
+                            <h5 class="metrics-header5">Set Up Trigger Notifications</h5><hr>
+                            <p>Notify me when:</p>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label for="middle-label" class="text-right middle">Peak Heart rate is below: </label>
+                              </div>
+                              <div class="medium-4 columns">
+                                <input type="number" name="heart-peak" placeholder="100">
+                              </div>
+                              <div class="medium-4 columns">
+                                <div> &nbsp;</div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label for="middle-label" class="text-right middle">Max heart rate is below: </label>
+                              </div>
+                              <div class="medium-4 columns">
+                               <input type="number" name="max-heart" placeholder="100">
+                              </div>
+                              <div class="medium-4 columns">
+                                <div> &nbsp;</div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label for="middle-label" class="text-right middle">Cardio Heart rate is below:</label>
+                              </div>
+                              <div class="medium-4 columns">
+                               <input type="number" name="cardio-heart" placeholder="100">
+                              </div>
+                              <div class="medium-4 columns">
+                                <div> &nbsp;</div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="medium-4 columns">
+                                <label for="middle-label" class="text-right middle">Normal Heart rate is below:</label>
+                              </div>
+                              <div class="medium-4 columns">
+                               <input type="number" name="normal-heart" placeholder="100"> 
+                              </div>
+                              <div class="medium-4 columns">
+                                <div> &nbsp;</div>
+                              </div>
+                            </div>                        
+                            <input id="heart-rate-onboarding-data" class="button ob-button" type = "submit" value = "Save"/>
+                          </form>
+                        </div>
+                        <!--End heart rate form-->
                     </div>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label>Normal:</label>
-                          <select>
-                            <option value="1">100-130</option>
-                            <option value="2">130-180</option>
-                            <option value="3">180-220</option>
-                          </select>
-                      </div>
-                      <div class="medium-4 columns">
-                        <label>Below Normal:</label>
-                          <select>
-                            <option value="1">100-130</option>
-                            <option value="2">130-180</option>
-                            <option value="3">180-220</option>
-                          </select>  
-                      </div>
-                      <div class="medium-4 columns">
-                        &nbsp;
-                      </div>
+                  </li>
+                  <!-- ... -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Weight</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Baseline Sleep Habits</h5><hr>
+                        <form action="demo_form.asp" method="get">                          
+                          <div class="row">
+                            <div class="small-7 large-4 columns">
+                              <label for="middle-label" class="text-right middle">Ideal Sleep Duration per night:</label>
+                            </div>
+                            <div class="small-3 large-2 columns">
+                              <select>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                              </select>
+                            </div>
+                            <div class="small-1 large-1 columns">
+                              <label for="middle-label" class="middle">hrs</label>
+                            </div>
+                            <div class="small-1 large-5 columns">
+                              &nbsp;
+                            </div>
+                          </div>
+                          <h5 class="metrics-header5">Trigger Set Up</h5><hr>
+                          <p style="color: #666666;">Notify me when:</p>
+                          <div class="row">
+                            <div class="large-2 columns">
+                              <label for="middle-label" class="middle">Patient has</label>
+                            </div>
+                            <div class="large-2 columns">
+                              <select>
+                                <option value="lose">lost</option>
+                                <option value="gain">gained</option>
+                                <!--<option value="neither">neither</option>-->
+                              </select> 
+                            </div>
+                            <div class="large-2 columns">
+                              <label for="middle-label" class="middle">more than </label>
+                            </div>
+                            <div class="large-2 columns">
+                              <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                              </select> 
+                            </div>
+                            <div class="large-2 columns">
+                              <label for="middle-label" class="middle">pounds (lbs)</label>
+                            </div>
+                            <div class="large-2 columns">
+                              <label>&nbsp;</label>
+                            </div>
+                          </div>                       
+                            <input id="weight-onboarding-data" type="submit" value="Save" class="button ob-button">
+                        </form>
                     </div>
-                    <h5 class="metrics-header5">Notify me when:</h5>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label for="middle-label" class="text-right middle">Peak Heart rate is below: </label>
-                      </div>
-                      <div class="medium-4 columns">
-                        <input type="number" name="heart-peak" placeholder="100">
-                      </div>
-                      <div class="medium-4 columns">
-                        <div> &nbsp;</div>
-                      </div>
+                  </li>
+                  <!--Nutrition  -->
+                  <li class="accordion-item is-active" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Nutrition</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Baseline Nutrition Information</h5><hr> 
+                        <form action="demo_form.asp" method="get">
+                          <div class="row">
+                            <div class="large-2 columns">
+                              <label for="middle-label" class="middle">Typically gets </label>
+                            </div>
+                            <div class="small-4 large-2 columns">
+                              <input type= "number" value ="8" id="fluids" placeholder="8">
+                            </div>
+                            <div class="small-8 large-4 columns">
+                              <p class="middle">cups of fluids</p>
+                            </div>
+                            <div class="large-3  columns">
+                              &nbsp;
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="large-2 columns">
+                              <label for="middle-label" class="middle">Typically eats </label>
+                            </div>
+                            <div class="small-4 large-2 columns">
+                              <input type= "number" value="3" id="meals" placeholder="3">
+                            </div>
+                            <div class="small-8 large-4 columns">
+                              <p class="middle">meals a day</p>
+                            </div>
+                            <div class="large-3  columns">
+                              &nbsp;
+                            </div>
+                          </div>
+                          <h5 class="metrics-header5">Trigger Set Up</h5><hr>
+                          <p style="color: #666666;">Notify me when:</p>
+                          <div class="row">
+                            <div class="small-2 large-1 columns" style="text-align: right;">
+                              <input type="checkbox" name="fluids-set" value="fluids-set">
+                            </div>
+                            <div class="small-10 large-11 columns">
+                              <label for="checkbox1">Cups of fluid are less than</label><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="large-1 columns">
+                              &nbsp;
+                            </div>
+                            <div class="small-6 large-2 columns">
+                              <input type="number" name="trigger-cups" placeholder="4">
+                            </div>
+                            <div class="small-6 large-1 columns">
+                              <label for="middle-label" class="middle">over</label>
+                            </div>
+                            <div class="small-6 large-2 columns">
+                              <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option 4alue="7">7</option>
+                              </select>
+                            </div>
+                            <div class="small-6 large-1 columns">
+                              <label for="middle-label" class="middle">days</label>
+                            </div>
+                            <div class="large-5 columns">
+                              <label>&nbsp;</label>
+                            </div>
+                          </div>
+                          <br/>
+                          <div class="row">
+                            <div class="small-2 large-1 columns" style="text-align: right;">
+                              <input type="checkbox" name="meals-set" value="meals-set" checked="checked">
+                            </div>
+                            <div class="small-10 large-11 columns">
+                              <label for="checkbox1">Number of meals are less than</label><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="large-1 columns">
+                              &nbsp;
+                            </div>
+                            <div class="small-6 large-2 columns">
+                              <input type="number" name="trigger-meals" placeholder="3">
+                            </div>
+                            <div class="small-6 large-1 columns">
+                              <label for="middle-label" class="middle">over</label>
+                            </div>
+                            <div class="small-6 large-2 columns">
+                              <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                              </select>
+                            </div>
+                            <div class="small-6 large-1 columns">
+                              <label for="middle-label" class="middle">days</label>
+                            </div>
+                            <div class="large-5 columns">
+                              <label>&nbsp;</label>
+                            </div>
+                          </div>
+                          <input id="ob-nutrition-info" type="submit" value="Save" class="button ob-button">
+                        </form>
                     </div>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label for="middle-label" class="text-right middle">Max heart rate is below: </label>
-                      </div>
-                      <div class="medium-4 columns">
-                       <input type="number" name="max-heart" placeholder="100">
-                      </div>
-                      <div class="medium-4 columns">
-                        <div> &nbsp;</div>
-                      </div>
+                  </li>
+                  <!-- Mood -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Mood</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Moods </h5><hr>
+                        
                     </div>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label for="middle-label" class="text-right middle">Cardio Heart rate is below:</label>
-                      </div>
-                      <div class="medium-4 columns">
-                       <input type="number" name="cardio-heart" placeholder="100">
-                      </div>
-                      <div class="medium-4 columns">
-                        <div> &nbsp;</div>
-                      </div>
+                  </li>
+                  <!-- Sleep -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Sleep</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Sleeping Habits </h5><hr>
+                        
                     </div>
-                    <div class="row">
-                      <div class="medium-4 columns">
-                        <label for="middle-label" class="text-right middle">Normal Heart rate is below:</label>
-                      </div>
-                      <div class="medium-4 columns">
-                       <input type="number" name="normal-heart" placeholder="100"> 
-                      </div>
-                      <div class="medium-4 columns">
-                        <div> &nbsp;</div>
-                      </div>
-                    </div>                        
-                    <input id="heart-rate-onboarding-data" class="button" type = "submit" value = "submit"/>
-                  </form>
-                </div>
-                <!--End heart rate-->
-
-                <div><h3 class="metrics-set-up-header">Weight</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Nutrition</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Mood</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Sleep</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Bathroom Habits</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Physical Activity</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Social Actvity</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Pain</h3></div>
-                <div></div>
-                <div><h3 class="metrics-set-up-header">Medication</h3></div>
-                <div></div>
-            </div><!--end panel6v-->
+                  </li>
+                  <!-- Bathroom Habits -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Bathroom Habits</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Bathroom Habits </h5><hr>
+                        
+                    </div>
+                  </li>
+                  <!-- Physical Activity -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Physical Activity</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Baseline Physical Activity </h5><hr>
+                        
+                    </div>
+                  </li>
+                  <!-- Social Activity -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Social Activity</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Baseline Social Activity </h5><hr>
+                        
+                    </div>
+                  </li>
+                  <!-- Pain -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Pain</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Baseline Pain Levels </h5><hr>
+                        
+                    </div>
+                  </li>
+                  <!-- Medication -->
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title ob-accordion-title">Medication</a>
+                    <div class="accordion-content" data-tab-content>
+                      <h5 class="metrics-header5">Set Medication Frequency </h5><hr>
+                        
+                    </div>
+                  </li>
+                </ul>
+            </div><!--end Onboarding Panel -->
+            <!--end panel6v-->
           </div>
         </div>
       </div>
