@@ -25,29 +25,38 @@
 <!-- Top bar -->
     <div class="top-bar">
       <div class="top-bar-title">
+        <!--Hamburger menu -->
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium" >
+          <button class="menu-icon dark" type="button" data-toggle ></button>
+        </span>
+        
         <img id="bird-img" width="40" height="auto" src="img/BEC.png">
         <font id="title"><a href="index.html" id="title">BIRD'S EYE CARE</a></font>
       </div>
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><a class="top-text" href="my-members.html">My members</a></li>
-          <li><a class="top-text" href="schedule.html">Schedule</a></li>
-          <li><a class="top-text" href="#">Settings</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <font>Hi Sally!</font>
-        <img id="cc-img" src="img/member-pic.png" width="50" height="auto">
+      <div id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="vertical medium-horizontal menu">
+            <li><a class="top-text" href="my-members.html">My Members</a></li>
+            <li><a class="top-text" href="schedule.html">Schedule</a></li>
+            <li><a class="top-text" href="#">Settings</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <div>
+            <font>Hi Sally!</font>
+            <img id="cc-img" src="img/member-pic.png" width="50" height="auto">
+          </div>
+        </div>
       </div>
     </div>
 
 <!-- Main page -->
     <div id="main-page-background" class="row">
       <div id="main-page" class="small-12 small-centered columns">
-        <p class="section-header">My member</p><hr>
+        <p class="section-header">My Member</p><hr>
         <div id="member-info-row" class="row">
           <div class="small-2 columns">
-            <img id="member-img" src="img/member-pic.png">
+            <img id="member-img" src="img/woman-1.png">
             <p id="member-name"><b>Ester Rohbark</b></p>
           </div>
           <div class="small-10 columns">
@@ -216,9 +225,9 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+<!--                   <div class= "footer" style="width:100%" align="center"> -->
                     <div id="heartrate-canvas" height="300" width="400"></div>
-                  </div>
+<!--                   </div> -->
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
@@ -311,7 +320,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class="footer" style="width:100%" align="center">
                     <div id="weight-canvas" height="300" width="400"></div>
                   </div>
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -484,7 +493,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="left">
+                  <div class="footer" style="width:100%" align="left">
                     <div>
                       <p>
                         Top 5 frequent moods for <span = id="time_placeholder"></span>
@@ -559,7 +568,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class= "footer" style="width:100%" align="center">
                     <div id="timeline" height="200" width="500"></div>
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
@@ -675,7 +684,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class= "footer" style="width:100%" align="center">
                     <div>
                       <h1><span = id="bathroomFreq"></span></h1>
                       <p>times <span = id="bathroomTime"></span></p>
@@ -736,7 +745,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class= "footer" style="width:100%" align="center">
                     <div id="physical-canvas" height="300" width="400"></div>
                   </div>
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -823,7 +832,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class= "footer" style="width:100%" align="center">
                     <div id="social-canvas" height="300" width="400"></div>
                   </div>
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -914,7 +923,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="left">
+                  <div class= "footer" style="width:100%" align="left">
                     <div>
                       <p>
                         Top 5 frequent pain points for <span = id="painTime_placeholder"></span>
@@ -984,7 +993,7 @@
                     <option value="7">7 days</option>
                     <option value="28">28 days</option>
                   </select>
-                  <div id= "footer" style="width:100%" align="center">
+                  <div class= "footer" style="width:100%" align="center">
                     <div id="med-canvas" height="300" width="400"></div>
                   </div>
                   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
