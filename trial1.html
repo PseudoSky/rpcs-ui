@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src = "C:/Users/madhuri/Desktop/Chart.js"></script>
+
+  <script>
+   function function2()
+  {
+    alert("function2+ "+friendsArr[0]);
+    alert("function2+ "+familyArr[0]);
+    alert("function2+ "+left_houseArr[0]);
+    alert("function2+ "+         unplanned_interactionsArr[0]);
+    
+    var data = {
+    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    datasets: [
+                {
+            label: "Social Activity Visiting Friends",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [friendsArr[0], friendsArr[1], friendsArr[2], friendsArr[3],friendsArr[4],friendsArr[5],friendsArr[6]]
+        },
+      
+          {
+            label: "Social Activity Visiting Family",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [familyArr[0], familyArr[1], familyArr[2], familyArr[3],familyArr[4],familyArr[5],familyArr[6]]
+        },
+
+     
+      
+       {
+            label: "Social Activity Left House",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [left_houseArr[0], left_houseArr[1], left_houseArr[2],left_houseArr[3],left_houseArr[4],left_houseArr[5],left_houseArr[6]]
+        }
+,
+
+
+
+       {
+            label: "Social Activity Left House",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [unplanned_interactionsArr[0], unplanned_interactionsArr[1], unplanned_interactionsArr[2],unplanned_interactionsArr[3],unplanned_interactionsArr[4],unplanned_interactionsArr[5],unplanned_interactionsArr[6]]
+        }
+
+      
+      
+      
+      
+      
+      
+         
+      
+      
+      
+      
+         
+      
+      
+      
+    ]
+};
+    
+    
+  
+if(friendsArr.length !=0 && familyArr.length !=0 && left_houseArr.length!=0)
+{ alert("ctx");  
+var ctx = document.getElementById("myChart").getContext("2d");
+   var myBarChart = new Chart(ctx).Bar(data);
+}
+  
+    }  // edn of cuntion2 
+  
+  
+  
+
+  
+  
+  
+  </script>
+  
+  
+  </head>
+  
+  
+  <body>
+    
+    
+
+      
+<script>
+   var friendsArr = [];
+   var familyArr = [];
+   var left_houseArr = [];
+   var unplanned_interactionsArr = [];
+   var id2 ; var strUser; 
+  
+  var flag=0;
+   
+    
+  function getEMA_Social()
+{  
+   alert("hello");
+    id2 = document.getElementById("id1"); 
+    strUser = id2.options[id2.selectedIndex].value;
+   alert(strUser);
+      
+  
+  
+       //lert("undeifned");
+   
+    
+
+ if(strUser == "Week")
+ { alert("week");
+  alert("here");
+  $.ajax({ 
+    type: 'GET', 
+    url: 'http://128.2.20.131:50000/values/ema_friends', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+     //alert("success");  
+     
+     $.each(data, function(index, element) {
+          // alert(element.value);
+          friendsArr.push(element.value);
+       
+       
+        });
+       
+       alert("friendsArr length= " +friendsArr.length+"  "+friendsArr[0]);
+       flag++;
+       
+    }
+
+});
+  
+  $.ajax({ 
+    type: 'GET', 
+    url: 'http://128.2.20.131:50000/values/ema_family', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+     //alert("success");  
+     
+     $.each(data, function(index, element) {
+           //alert(element.value);
+           familyArr.push(element.value);
+         
+        });
+      alert("familyArr= " +familyArr.length );
+      //if(familyArr.length)
+       flag++;  
+       
+       
+    }
+
+});
+  
+  
+$.ajax({ 
+    type: 'GET', 
+    url: 'http://128.2.20.131:50000/values/ema_left_house', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+     alert("success");  
+     
+     $.each(data, function(index, element) {
+           //alert(element.value);
+          left_houseArr.push(element.value);
+        
+        });
+       
+       alert("left_houseArr = " +left_houseArr.length );
+       flag++;    
+
+}
+
+});
+
+$.ajax({ 
+    type: 'GET', 
+    url: 'http://128.2.20.131:50000/values/ema_unplanned_interactions', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+     //alert("success");  
+     
+     $.each(data, function(index, element) {
+           //alert(element.value);
+          unplanned_interactionsArr.push(element.value);
+          
+         
+        });
+       
+       alert("unplanned_interactionsArr = " +unplanned_interactionsArr.length );
+    
+         flag++;
+}
+
+});
+ }
+
+  
+  
+  
+  
+  
+  
+  
+  
+}
+  
+   
+
+
+
+     
+  
+  
+ 
+  </script>
+  
+ 
+
+   <select id="id1" onChange = "getEMA_Social()">
+    <option value="Week" selected>Week</option>
+    <option value="2 weeks">2 weeks</option>
+    <option value="Month">Month</option>
+    </select>
+
+
+
+   <canvas id="myChart" width="600" height="400"></canvas>
+    
+    <button onClick = "function2()">Generate Chart</button>
+
+    
+    
+  </body>
+  
+</html>
+  
