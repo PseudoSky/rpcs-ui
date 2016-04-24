@@ -352,7 +352,7 @@
                       getWeightData(weightAxis, function (data) {
 
                         weightValues = _.map(data,'value');
-                        tsArr =        _.map(data,'timestamp');
+                        tsArr =        _.timestamps(_.map(data,'timestamp'));
                         console.log(tsArr);
                         determineDims(weightAxis, weightValues);
                       }); 
