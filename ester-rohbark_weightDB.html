@@ -11,20 +11,13 @@
     <link rel="icon" href="img/BEC.png" type="image/gif" sizes="16x16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-          google.charts.load('current', {packages: ['corechart', 'timeline']});
-          google.charts.setOnLoadCallback(drawChart);
-          google.charts.setOnLoadCallback(drawMedChart);
-          google.charts.setOnLoadCallback(drawSocialActivity);
-          google.charts.setOnLoadCallback(drawPhysicalActivity);
-          google.charts.setOnLoadCallback(drawHeartRate);
-          google.charts.setOnLoadCallback(drawWeight);
-        </script>
+    <script type="text/javascript" src="js/jsapi.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.min.js"></script>
         <script type="text/javascript">
         var weightValues = [];
         </script>
   </head>
-  <body onload="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();"
+  <body onload=""
     onresize="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
 
 <!-- Top bar -->
@@ -234,8 +227,8 @@
 <!--                   <div class= "footer" style="width:100%" align="center"> -->
                     <div id="heartrate-canvas" height="300" width="400"></div>
 <!--                   </div> -->
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-                  <script type="text/javascript">
+                  
+                  <script defer="true" type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
 
@@ -249,69 +242,69 @@
 
                     // Create the data table.
 
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Time');
-                    data.addColumn('number', 'HeartRate');
-                    data.addColumn ('number', 'Baseline');
+                      var data = new google.visualization.DataTable();
+                      data.addColumn('string', 'Time');
+                      data.addColumn('number', 'HeartRate');
+                      data.addColumn ('number', 'Baseline');
 
-                    var times;
-                    var values;
-                    var baseline;
+                      var times;
+                      var values;
+                      var baseline;
 
-                    var s = document.getElementById ('hrAxis');
-                    var hrAxis = s.options [s.selectedIndex].value;
+                      var s = document.getElementById ('hrAxis');
+                      var hrAxis = s.options [s.selectedIndex].value;
 
-                    if (hrAxis == 1) {
-                      times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
-                               "4PM", "5PM", "6PM", "7PM", "8PM"];
-                      values = [71, 72, 73, 71, 72, 73, 71, 72, 73, 71, 72, 73, 71];
-                      baseline = Array(13).fill(72);
-                    }
-                    else if (hrAxis == 7) {
-                      times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
-                      values = [71, 72, 73, 74, 75, 76, 77];
-                      baseline = Array(7).fill(72);
-
-                    }
-                    else if (hrAxis == 28) {
-                      times = ["1", "2", "3", "4", "5", "6", "7",
-                               "8", "9", "10", "11", "12", "13", "14",
-                               "15", "16", "17", "18", "19", "20", "21",
-                               "22", "23", "24", "25", "26", "27", "28"
-                               ];
-                      values = [71, 72, 73, 74, 75, 76, 77,
-                                71, 72, 73, 74, 75, 76, 77,
-                                71, 72, 73, 74, 75, 76, 77,
-                                71, 72, 73, 74, 75, 76, 77
-                                ];
+                      if (hrAxis == 1) {
+                        times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
+                                 "4PM", "5PM", "6PM", "7PM", "8PM"];
+                        values = [71, 72, 73, 71, 72, 73, 71, 72, 73, 71, 72, 73, 71];
+                        baseline = Array(13).fill(72);
                       }
-                      baseline = Array(28).fill(72);
+                      else if (hrAxis == 7) {
+                        times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+                        values = [71, 72, 73, 74, 75, 76, 77];
+                        baseline = Array(7).fill(72);
 
-
-                      var rows = [];
-
-                      for (i = 0; i < times.length; i++) {
-                        rows.push([times[i], values[i], baseline[i]]);
                       }
+                      else if (hrAxis == 28) {
+                        times = ["1", "2", "3", "4", "5", "6", "7",
+                                 "8", "9", "10", "11", "12", "13", "14",
+                                 "15", "16", "17", "18", "19", "20", "21",
+                                 "22", "23", "24", "25", "26", "27", "28"
+                                 ];
+                        values = [71, 72, 73, 74, 75, 76, 77,
+                                  71, 72, 73, 74, 75, 76, 77,
+                                  71, 72, 73, 74, 75, 76, 77,
+                                  71, 72, 73, 74, 75, 76, 77
+                                  ];
+                        }
+                        baseline = Array(28).fill(72);
 
-                      data.addRows(rows);
+
+                        var rows = [];
+
+                        for (i = 0; i < times.length; i++) {
+                          rows.push([times[i], values[i], baseline[i]]);
+                        }
+
+                        data.addRows(rows);
 
 
-                    // Set chart options
-                    var options = { legend: {'position':'top', 'alignment':'center'},
-                                    hAxis: {
-                                      title: 'Time',
-                                    },
-                                    vAxis: {
-                                      title: 'BPM'
-                                    },
-                                  };
+                      // Set chart options
+                      var options = { legend: {'position':'top', 'alignment':'center'},
+                                      hAxis: {
+                                        title: 'Time',
+                                      },
+                                      vAxis: {
+                                        title: 'BPM'
+                                      },
+                                    };
 
 
-                    // Instantiate and draw our chart, passing in some options.
-                    var chart = new google.visualization.LineChart(document.getElementById('heartrate-canvas'));
-                    chart.draw(data, options);
-                  }
+                      // Instantiate and draw our chart, passing in some options.
+                      var chart = new google.visualization.LineChart(document.getElementById('heartrate-canvas'));
+                      chart.draw(data, options);
+                    }
                     function heartrateAnim() {
                       drawHeartRate();
                     }
@@ -329,12 +322,12 @@
                   <div class="footer" style="width:100%" align="center">
                     <div id="weight-canvas" height="300" width="400"></div>
                   </div>
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+              
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
 
 
-                  function getWeightData (timeValue, getValues) {
+                  function getWeightData (timeValue, handleResponse) {
 
                       $.ajax({
                         type: 'GET',
@@ -342,7 +335,7 @@
                         aysnc: false,
                         data: {get_param: 'value'},
                         dataType: 'json',
-                        success: getValues
+                        success: handleResponse
                       });
                    }
 
@@ -350,45 +343,48 @@
                     // instantiates the pie chart, passes in the data and
                     // draws it.
                     function drawWeight() {
-                      alert ("called draw weight");
+                      // alert ("called draw weight");
                       var s = document.getElementById ('weightAxis');
                       var weightAxis = s.options [s.selectedIndex].value;
                     // Create the data table.              
 
-                        var weightValues = [];
+                      var weightValues = [];
+                      getWeightData(weightAxis, function (data) {
 
-                      if (weightAxis == 1) {
+                        weightValues = _.map(data,'value');
+                        tsArr =        _.map(data,'timestamp');
+                        console.log(tsArr);
+                        determineDims(weightAxis, weightValues);
+                      }); 
+                      // if (weightAxis == 1) {
               
-                        getWeightData(1, function (data) {
-                          for (var key in data) {
-                             weightValues.push(data[key]);
-                          }
-                        determineDims(1, weightValues);
-                        alert (weightValues.length);
-                       }); 
-                      }
-                      else if (weightAxis == 7) {
-                        getWeightData(7, function (data) {
-                          for (var key in data) {
-                          weightValues.push(data[key]);
-                          }
-                          determineDims(7, weightValues);
-                          alert (weightValues.length);
-                        }); 
-                      }
-                      else if (weightAxis == 28) {
-                        getWeightData(28, function (data) {
-                          for (var key in data) {
-                           weightValues.push(data[key]);
-                          }
-                          determineDims(28, weightValues);
-                          alert (weightValues.length);
-                        }); 
-                      }
+
+                      // }
+                      // else if (weightAxis == 7) {
+                      //   getWeightData(7, function (data) {
+                      //     weightValues=_.map(data,'value');
+                      //     // for (var key in data) {
+                      //     // weightValues.push(data[key]);
+                      //     // console.log(key);
+                      //     // }
+                      //     determineDims(7, weightValues);
+                      //     // alert (weightValues.length);
+                      //   }); 
+                      // }
+                      // else if (weightAxis == 28) {
+                      //   getWeightData(28, function (data) {
+                      //     // for (var key in data) {
+                      //     //  weightValues.push(data[key]);
+                      //     // }
+                      //     weightValues=_.map(data,'value');
+                      //     determineDims(28, weightValues);
+                      //     // alert (weightValues.length);
+                      //   }); 
+                      // }
                   }
 
                     function determineDims (timeValue, weightArr) {
-                      alert ("called determine dimensions");
+                      // alert ("called determine dimensions");
 
                       var chartData = new google.visualization.DataTable();
                       chartData.addColumn('string', 'Time');
@@ -797,7 +793,7 @@
                   <div class= "footer" style="width:100%" align="center">
                     <div id="physical-canvas" height="300" width="400"></div>
                   </div>
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                  
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -884,7 +880,7 @@
                   <div class= "footer" style="width:100%" align="center">
                     <div id="social-canvas" height="300" width="400"></div>
                   </div>
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                 
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -1045,8 +1041,8 @@
                   <div class= "footer" style="width:100%" align="center">
                     <div id="med-canvas" height="300" width="400"></div>
                   </div>
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-                  <script type="text/javascript">
+          
+                  <script defer="true" type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
 
@@ -1188,5 +1184,15 @@
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery.sticky.js"></script>
     <script src="Chart.js"></script>
+    <script type="text/javascript">
+          google.charts.load('current', {packages: ['corechart', 'timeline']});
+          google.charts.setOnLoadCallback(drawChart);
+          google.charts.setOnLoadCallback(drawMedChart);
+          google.charts.setOnLoadCallback(drawSocialActivity);
+          google.charts.setOnLoadCallback(drawPhysicalActivity);
+          google.charts.setOnLoadCallback(drawHeartRate);
+          google.charts.setOnLoadCallback(drawWeight);
+
+    </script>
   </body>
 </html>
