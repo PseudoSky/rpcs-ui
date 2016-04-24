@@ -677,10 +677,12 @@ be a descendant of the grid when it is being dragged.
 .fc-day-grid-event .fc-content { /* force events to be one-line tall */
 	white-space: nowrap;
 	overflow: hidden;
+	color: #333333;
 }
 
 .fc-day-grid-event .fc-time {
 	font-weight: bold;
+	color: #333333;
 }
 
 .fc-day-grid-event .fc-resizer { /* enlarge the default hit area */
@@ -688,6 +690,7 @@ be a descendant of the grid when it is being dragged.
 	right: -3px;
 	width: 7px;
 }
+
 
 
 /* Event Limiting
@@ -1090,11 +1093,13 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event .fc-time,
 .fc-time-grid-event .fc-title {
 	padding: 0 1px;
+	color: #333333;
 }
 
 .fc-time-grid-event .fc-time {
 	font-size: .85em;
 	white-space: nowrap;
+
 }
 
 /* short mode, where time and title are on the same line */
@@ -1110,6 +1115,7 @@ be a descendant of the grid when it is being dragged.
 	display: inline-block;
 	vertical-align: top;
 }
+
 
 .fc-time-grid-event.fc-short .fc-time span {
 	display: none; /* don't display the full time text... */
