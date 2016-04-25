@@ -504,7 +504,107 @@ a.tabs-title:focus {
 	background-color:#fbe9e7;
 }
 
+.profileinfo { background: #f2f2f2; width: 100%; padding: 4px 10px; border-left: 1px solid #b3b3b3; border-right: 1px solid #b3b3b3; border-bottom: 1px solid #b3b3b3; }
+.profileinfo h2 { position: relative; left: -250px; }
+
+.gear { 
+	position: relative; 
+	display: block; 
+	margin-bottom: 25px; 
+	padding-bottom: 15px; 
+	border-bottom: 1px solid #d9d9d9; }
+
+.gear a.editlink 
+{ 
+	position: absolute; 
+	right: 0; 
+	top: 13px; 
+	color:#18456B !important;
+}
+
+.datainfo { 
+	margin-left: 10px; 
+	font-size: 12pt; 
+	color: #333333; }
+
+.gear-label { 
+	display: inline-block; 
+	font-weight: bold; 
+	color: #666666; 
+	font-size: 12pt; }
+
+/** @group form inputs **/
+.hlite 
+{ 
+	background: #f4f3f5; 
+	display: inline-block;
+	border: 1px solid #bdc7d8;
+	width: 250px; 
+	/*margin-left: -7px;*/ 
+	padding: 4px 7px; 
+	color: #565656; 
+	font-size: 12pt; 
+
+}
+
+/** @group buttons **/
+.savebtn 
+{ 
+	position: absolute; 
+	right: 0; 
+	top: 13px; 
+	padding: 3px 8px; 
+	background: #18456B; 
+	font-size: 11pt; 
+	cursor: pointer; 
+	border: 1px solid #1a356e; 
+	color: #ffffff !important; 
+	border-radius: 5px;
+	margin-bottom: 5px; 
+	/*margin-top: -5px; */
+	display: none;
+}
+.savebtn:hover { color: #fff !important; background: #18456B; text-decoration: none; }
+.savebtn:active { background: #18456B; }
+
+.collab-container 
+{
+	width: 100%;
+	padding: 5px 10px; 
+	border: 1px solid #9c9c9c;
+}
+.collab-member
+{
+	padding: 5px 10px; 
+	margin: 3px 5px 3px 0;
+	display: inline-flex;
+	background-color: #ff8065; 
+	color: #ffffff; 
+	border-radius: 5px;
+}
+
+.collab-close
+{
+	color: #ffffff !important;
+	margin:-1px;
+}
+
+.collab-close:hover
+{
+	color: #eeeeee !important;
+}
+
+.collab-form-box
+{
+	 display: inline-block; 
+	 width: 175px;
+	 background-color: #fbe9e7;
+	 color: #333333;
+}
+
+
 
 
 /*END SETTINGS PAGE */
+
 
