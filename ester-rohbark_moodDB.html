@@ -574,35 +574,44 @@
                         var binaryArr = [];
                         var binaryStr = "";
                         var top5 = new Array(5);
-
-                        getMoodData(moodAxis, function (data) {
-                          tempArr = _.map(data, 'value');
-                          binaryStr = (tempArr[0] >>> 0).toString(2);
-                          var len = binaryStr.length;
-                          var offset = 16 - len;
-
-                          var counter = 0;
-                          for (counter in len) {
-                            binaryArr.push(binaryStr[counter]);
-                            console.log(binaryArr);
-                          }
-
-                          tempArr = _.fill(tempArr, 0, 0, offset);
-                          tempArr[offset] = 0;
-                          console.log(tempArr);
-
-                          // tempArr[offset] = binaryStr;
-                          // tempArr = _.flatten(tempArr);
-
-                          // console.log(tempArr);
-                          // console.log(binaryStr[0]);
-                        });
+                        var moodResponses;
 
                         var moodList = ["Tired", "Energetic", "Happy", "Miserable",
                           "Sad", "Content", "Tense", "Frustrated",
                           "Angry", "Annoyed", "Bored", "Lonely",
                           "Confused", "Hopeless", "Anxious", "Helpless"
                         ];
+
+                        getMoodData(moodAxis, function (data) {
+                          tempArr = _.map(data, 'value');
+                          /* Create binary string from int data value */
+                          binaryStr = (tempArr[0] >>> 0).toString(2);
+                          var len = binaryStr.length;
+                          var offset = 16 - len;
+
+                          /* Create array from binary value string */
+                          var counter = 0;
+                          for (counter; counter < len; counter++) {
+                            binaryArr.push(binaryStr[counter]);
+                          }
+                          tempArr = [];
+                          for (counter = 0; counter < offset; counter++) {
+                            tempArr.push(0);
+                          }
+
+                          /* Create array for all 16 mood values */
+                          binaryArr = _.concat(tempArr, binaryArr);
+                          console.log(binaryArr);
+
+                          for (counter=0; counter<16; counter++) {
+                            if (binaryArr[counter] == 1) {
+                              top5.push(moodList[counter]);
+                            }
+                          }
+                          console.log(top5);
+                          return top5;
+                        });
+                        console.log(top5);
 
                         // if (moodAxis == 1) {
                         //     top5 = ["Happy", "Sad", "Miserable", "Lonely", "Angry"];
@@ -613,8 +622,7 @@
                         // else if (moodAxis == 28) {
                         //     temp = ["Happy", "Frustrated", "Sad", "Energetic", "Lonely"]
                         // }
-                        return top5;
-                    };
+                    }
                     var timeVal = function () {
                       var timeValue;
                       var s = document.getElementById ('moodAxis');
