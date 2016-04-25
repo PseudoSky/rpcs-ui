@@ -352,7 +352,7 @@
                       getWeightData(weightAxis, function (data) {
 
                         weightValues = _.map(data,'value');
-                        tsArr =        _.timestamps(_.map(data,'timestamp'));
+                        tsArr =        _.map(data,'timestamp');
                         console.log(tsArr);
                         determineDims(weightAxis, weightValues);
                       }); 
@@ -1069,22 +1069,22 @@
                     // draws it.
                     function drawMedChart() {
                       // alert ("called draw weight");
-                      var s = document.getElementById ('weightAxis');
-                      var weightAxis = s.options [s.selectedIndex].value;
+                      var s = document.getElementById ('medAxis');
+                      var medAxis = s.options [s.selectedIndex].value;
                     // Create the data table.              
 
                       var medicationValues = [];
-                      getMedicationData(weightAxis, function (data) {
+                      getMedicationData(medAxis, function (data) {
 
-                        medicationValue = _.map(data,'value');
+                        medicationValues = _.map(data,'value');
                         tsArr =        _.map(data,'timestamp');
-                        determineDims(weightAxis, medicationValues);
+                        determineMedDims(weightAxis, medicationValues);
                       }); 
                     }
 
 
 
-                    function determineDims(weightAxis, medicationValues) {
+                    function determineMedDims(medAxis, medicationValues) {
 
                     // Create the data table.
 
