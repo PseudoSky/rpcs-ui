@@ -16,19 +16,27 @@
 <!-- Top bar -->
     <div class="top-bar">
       <div class="top-bar-title">
+      <!--testing responsive-->
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+          <button class="menu-icon dark" type="button" data-toggle></button>
+        </span>
         <img id="bird-img" width="40" height="auto" src="img/BEC.png">
         <font id="title"><a href="index.html" id="title">BIRD'S EYE CARE</a></font>
       </div>
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><a class="top-text" href="my-members.html">My Members</a></li>
-          <li><a class="top-text" href="schedule.html">Schedule</a></li>
-          <li><a class="top-text" href="#">Settings</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <font>Hi Sally!</font>
-        <img id="cc-img" src="img/member-pic.png" width="50" height="auto">
+      <div id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="vertical medium-horizontal menu">
+            <li><a class="top-text" href="my-members.html">My Members</a></li>
+            <li><a class="top-text" href="schedule.html">Schedule</a></li>
+            <li><a class="top-text" href="settings.html">Settings</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <div style="padding: 5px 15px;">
+            <font>Hi Sally!</font>
+            <img id="cc-img" src="img/member-pic.png" width="40" height="auto">
+          </div>
+        </div>
       </div>
     </div>
 
