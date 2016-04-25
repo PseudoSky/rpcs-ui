@@ -478,23 +478,28 @@
                   <div align="center">
                     <table>
                       <tr>
-                        <td align="center">average liquids</td>
-                        <td align="center">average snacks</td>
-                        <td align="center">average meals</td>
-                      </tr>
-                      <tr>
                         <td align="center">
-                          <h4><span = id="liquid"></span>
+                          <h4>
                           <img id="nutrition-img" src="img/liquid.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
-                          <h4><span = id="snack"></span>
+                          <h4>
                           <img id="nutrition-img" src="img/snack.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
-                          <h4><span = id="food"></span>
+                          <h4>
                           <img id="nutrition-img" src="img/food.png" width="50" height="auto"></h4>
                         </td>
+                      </tr>
+                      <tr>
+                        <td align="center"><span id="liquid"></span> average</td>
+                        <td align="center"><span id="snack"></span> average</td>
+                        <td align="center"><span id="food"></span> average</td>
+                      </tr>
+                      <tr>
+                        <td align="center">liquids per day</td>
+                        <td align="center">snacks per day</td>
+                        <td align="center">meals per day</td>
                       </tr>
                     </table>
                   </div>
@@ -551,7 +556,7 @@
               </div>
               <div class="large-6 medium-6 columns"> <!--Mood-->
                 <div class="dash-widget">
-                  <h6 class="widget-title">Mood&nbsp;<button class="event-lnk" id="myBtn">&#43;</button></h6>
+                  <h6 class="widget-title">Mood</h6>
                   <select id="moodAxis" onchange="moodAnim()">
                     <option value="1">Daily</option>
                     <option value="7">7 days</option>
@@ -572,27 +577,80 @@
                     </div>
                   </div>
                   <script>
+                    function getMoodData (timeValue, handleResponse) {
+                      $.ajax({
+                        type: 'GET',
+                        url: 'http://128.2.20.131:50000/values/moods',
+                        aysnc: false,
+                        data: {get_param: 'value'},
+                        dataType: 'json',
+                        success: handleResponse
+                      });
+                    }
+
                     var randoingFactor = function(){ return Math.round(Math.random()*100)};
-                    var moodValue = function () {
-                        var s = document.getElementById ('moodAxis');
-                        var moodAxis = s.options [s.selectedIndex].value;
-                        var temp;
-                        if (moodAxis == 1) {
-                            temp = ["Happy", "Sad", "Miserable", "Lonely", "Angry"];
-                        }
-                        else if (moodAxis == 7) {
-                            temp = ["Sad", "Frustrated", "Happy", "Energetic", "Tired"];
-                        }
-                        else if (moodAxis == 28) {
-                            temp = ["Happy", "Frustrated", "Sad", "Energetic", "Lonely"]
-                        }
-                        return temp;
-                    };
-                    var timeVal = function () {
-                      var timeValue;
+                    var writeMood = function () {
                       var s = document.getElementById ('moodAxis');
                       var moodAxis = s.options [s.selectedIndex].value;
 
+                      var tempArr = new Array(16);
+                      var binaryArr = [];
+                      var binaryStr = "";
+                      var top5 = new Array(5);
+                      var moodResponses;
+
+                      var moodList = ["Tired", "Energetic", "Happy", "Miserable",
+                        "Sad", "Content", "Tense", "Frustrated",
+                        "Angry", "Annoyed", "Bored", "Lonely",
+                        "Confused", "Hopeless", "Anxious", "Helpless"
+                      ];
+
+                      getMoodData(moodAxis, function (data) {
+                        tempArr = _.map(data, 'value');
+                        /* Create binary string from int data value */
+                        binaryStr = (tempArr[0] >>> 0).toString(2);
+                        var len = binaryStr.length;
+                        var offset = 16 - len;
+
+                        /* Create array from binary value string */
+                        var counter = 0;
+                        for (counter; counter < len; counter++) {
+                          binaryArr.push(binaryStr[counter]);
+                        }
+                        tempArr = [];
+                        for (counter = 0; counter < offset; counter++) {
+                          tempArr.push(0);
+                        }
+
+                        /* Create array for all 16 mood values */
+                        binaryArr = _.concat(tempArr, binaryArr);
+                        console.log(binaryArr);
+                        determineTop5(binaryArr, moodList);
+                      });
+
+                      // if (moodAxis == 1) {
+                      //     top5 = ["Happy", "Sad", "Miserable", "Lonely", "Angry"];
+                      // }
+                      // else if (moodAxis == 7) {
+                      //     temp = ["Sad", "Frustrated", "Happy", "Energetic", "Tired"];
+                      // }
+                      // else if (moodAxis == 28) {
+                      //     temp = ["Happy", "Frustrated", "Sad", "Energetic", "Lonely"]
+                      // }
+                    }
+
+                    var top5 = [];
+                    function determineTop5(binaryArr, moodList) {
+                      for (counter=0; counter<16; counter++) {
+                        if (binaryArr[counter] == 1) {
+                          top5.push(moodList[counter]);
+                        }
+                      }
+                      console.log(top5);
+
+                      var timeValue;
+                      var s = document.getElementById ('moodAxis');
+                      var moodAxis = s.options [s.selectedIndex].value;
                       if (moodAxis == 1) {
                         timeValue = "today";
                       }
@@ -602,23 +660,19 @@
                       else if (moodAxis == 28) {
                         timeValue = "28 days";
                       }
-                      return timeValue;
-                    }
 
+                      document.getElementById('time_placeholder').innerHTML = timeValue;
+                      document.getElementById('mood_1').innerHTML = top5[0];
+                      document.getElementById('mood_2').innerHTML = top5[1];
+                      document.getElementById('mood_3').innerHTML = top5[2];
+                      document.getElementById('mood_4').innerHTML = top5[3];
+                      document.getElementById('mood_5').innerHTML = top5[4];
+                    }
 
                     function moodAnim() {
-                      var mood = moodValue();
-                      var timeValue = timeVal();
-                      document.getElementById('time_placeholder').innerHTML = timeValue;
-                      document.getElementById('mood_1').innerHTML = mood[0];
-                      document.getElementById('mood_2').innerHTML = mood[1];
-                      document.getElementById('mood_3').innerHTML = mood[2];
-                      document.getElementById('mood_4').innerHTML = mood[3];
-                      document.getElementById('mood_5').innerHTML = mood[4];
-
+                      writeMood();
                     }
-                    </script>
-
+                  </script>
                 </div>
               </div>
             </div>
