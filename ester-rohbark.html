@@ -261,8 +261,6 @@
 
                         hrValues = _.map(data,'value');
                         hrTsArr =        _.map(data,'timestamp');
-                        console.log("heart rate values " + hrValues);
-                        console.log(data);
                         determineHRDims(hrAxis, hrValues, hrTsArr);
                       });
                     } 
@@ -303,12 +301,10 @@
                         values = Array(7).fill(0);
                         hrTsArr.forEach (function (entry) {
                           var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                          console.log (hrArr[hrTsArr.indexOf(entry)]);
                           if (values[temp.getDay()] < hrArr[hrTsArr.indexOf(entry)]) 
                             values[temp.getDay()] = hrArr[hrTsArr.indexOf(entry)];
 
                         })
-                        console.log(values);
                         baseline = Array(7).fill(72);
                        
                       }
@@ -393,7 +389,6 @@
 
                       weightValues = _.map(data,'value');
                       weightTsArr =        _.map(data,'timestamp');
-                      console.log(tsArr);
                       determineWeightDims(weightAxis, weightValues, weightTsArr);
                     }); 
                       // if (weightAxis == 1) {
@@ -458,12 +453,10 @@
                       values = Array(7).fill(0);
                       weightTsArr.forEach (function (entry) {
                         var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                        console.log (weightArr[weightTsArr.indexOf(entry)]);
                         if (values[temp.getDay()] < weightArr[weightTsArr.indexOf(entry)]) 
                           values[temp.getDay()] = weightArr[weightTsArr.indexOf(entry)];
 
                       })
-                      console.log(values);
                       baseline = Array(7).fill(72);
                      
                     }
@@ -492,7 +485,9 @@
                                   },
                                   vAxis: {
                                     title: 'lbs'
-                                  }
+                                  },
+                                    pointSize: 2,
+                                    pointShape: 'circle',
                                 };
 
 
@@ -976,12 +971,10 @@
                         values = Array(7).fill(0);
                         paTsArr.forEach (function (entry) {
                           var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                          console.log (paValues[paTsArr.indexOf(entry)]);
                           if (values[temp.getDay()] < paValues[paTsArr.indexOf(entry)]) 
                             values[temp.getDay()] = paValues[paTsArr.indexOf(entry)];
 
                         })
-                        console.log(values);
                         baseline = Array(7).fill(5000);
                        
                       }
@@ -1235,8 +1228,6 @@
 
                         medicationValues = _.map(data,'value');
                         tsArr =        _.map(data,'timestamp');
-                        console.log(medicationValues);
-                        console.log(tsArr);
                         determineMedDims(weightAxis, medicationValues, tsArr);
                       }); 
                     }
@@ -1277,7 +1268,6 @@
                           values[temp.getDay()] += 1;
 
                         })
-                        console.log(values);
                       }
                       else if (medAxis == 28) {
                         times = ["1", "2", "3", "4", "5", "6", "7",
@@ -1305,6 +1295,7 @@
                                     vAxis: {
                                       title: 'Pills'
                                     },
+
                                   };
 
 
