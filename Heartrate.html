@@ -2,7 +2,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src = "C:/Users/madhuri/Desktop/Chart.js"></script>
+<script src = "Chart.js"></script>
 
   <script>
    function function2()
@@ -23,7 +23,19 @@
             highlightStroke: "rgba(151,187,205,1)",
             data: [friendsArr[0], friendsArr[1], friendsArr[2], friendsArr[3],friendsArr[4],friendsArr[5],friendsArr[6]]
         
-}
+},
+
+
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [65,65,65,65,65,65,65]
+        }
      
       
 
@@ -47,6 +59,20 @@ var data1 = {
 
 
 
+        },
+
+
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [65,65,65,65,65,65,65,65,65,65,65,65,65,65
+
+]
         }
 
      
@@ -69,9 +95,26 @@ var data2 = {
             highlightFill: "rgba(151,187,205,0.75)",
             highlightStroke: "rgba(151,187,205,1)",
             data: [friendsArr[0], friendsArr[1], friendsArr[2], friendsArr[3],friendsArr[4],friendsArr[5],friendsArr[6],friendsArr[7], friendsArr[8], friendsArr[9], friendsArr[10],friendsArr[11],friendsArr[12],friendsArr[13],
-friendsArr[14], friendsArr[15], friendsArr[16],friendsArr[17],friendsArr[18],friendsArr[19],
-friendsArr[20],friendsArr[21], friendsArr[22], friendsArr[23],friendsArr[24],friendsArr[25],friendsArr[26],
-friendsArr[27],friendsArr[28], friendsArr[29]]
+friendsArr[14], friendsArr[15], friendsArr[16],friendsArr[17],friendsArr[18],friendsArr[19]]
+
+
+
+
+
+
+
+
+        },
+
+{
+            label: "Social Activity Visiting Friends",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65]
+
+
 
 
 
@@ -81,6 +124,11 @@ friendsArr[27],friendsArr[28], friendsArr[29]]
 
 
         }
+
+
+
+
+
 
 
 
@@ -97,20 +145,22 @@ friendsArr[27],friendsArr[28], friendsArr[29]]
 if(flag==1 && friendsArr.length !=0)
 { //alert("ctx");  
 var ctx = document.getElementById("myChart").getContext("2d");
-   var myBarChart = new Chart(ctx).Bar(data);
+   var myBarChart = new Chart(ctx).Line(data);
+
+   
 }
 
 if(flag==2 && friendsArr.length !=0)
 
 { //alert("ctx");  
 var ctx = document.getElementById("myChart").getContext("2d");
-   var myBarChart = new Chart(ctx).Bar(data1);
+   var myBarChart = new Chart(ctx).Line(data1);
 }
 
 if(flag==3 && friendsArr.length !=0)
 { //alert("ctx");  
 var ctx = document.getElementById("myChart").getContext("2d");
-   var myBarChart = new Chart(ctx).Bar(data2);
+   var myBarChart = new Chart(ctx).Line(data2);
 }
 
 
@@ -145,7 +195,7 @@ var ctx = document.getElementById("myChart").getContext("2d");
   var flag=0;
    
     
-  function getSteps()
+  function getHeartRate()
 {  
    //alert("hello");
     id2 = document.getElementById("id1"); 
@@ -163,7 +213,7 @@ var ctx = document.getElementById("myChart").getContext("2d");
   //alert("here");
   $.ajax({ 
     type: 'GET', 
-    url: 'http://128.2.20.131:50000/values/steps', 
+    url: 'http://128.2.20.131:50000/values/resting-heart-rate', 
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -203,7 +253,7 @@ else if(strUser == "2 weeks")
   //alert("here");
   $.ajax({ 
     type: 'GET', 
-    url: 'http://128.2.20.131:50000/values/steps', 
+    url: 'http://128.2.20.131:50000/values/resting-heart-rate', 
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -241,7 +291,7 @@ else if(strUser == "Month")
   //alert("here");
   $.ajax({ 
     type: 'GET', 
-    url: 'http://128.2.20.131:50000/values/steps', 
+    url: 'http://128.2.20.131:50000/values/resting-heart-rate', 
     data: { get_param: 'value' }, 
     dataType: 'json',
     success: function (data) { 
@@ -298,17 +348,17 @@ else if(strUser == "Month")
   
  
 
-   <select id="id1" onChange = "getSteps()">
+   <select id="id1" onChange = "getHeartRate()">
     <option value="Week" selected>Week</option>
     <option value="2 weeks">2 weeks</option>
     <option value="Month">Month</option>
     </select>
 
 
-
-   <canvas id="myChart" width="600" height="400"></canvas>
+   <label id = "chart" onClick ="function2()">Heart Rate</label>
+   <canvas id="myChart" width="400" height="200"></canvas>
     
-    <button onClick = "function2()">Generate Chart</button>
+    
 
     
     
