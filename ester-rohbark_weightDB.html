@@ -261,7 +261,7 @@
                         baseline = Array(13).fill(72);
                       }
                       else if (hrAxis == 7) {
-                        times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+                        times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
                         values = [71, 72, 73, 74, 75, 76, 77];
                         baseline = Array(7).fill(72);
 
@@ -352,9 +352,9 @@
                       getWeightData(weightAxis, function (data) {
 
                         weightValues = _.map(data,'value');
-                        tsArr =        _.map(data,'timestamp');
+                        weightTsArr =        _.map(data,'timestamp');
                         console.log(tsArr);
-                        determineDims(weightAxis, weightValues);
+                        determineWeightDims(weightAxis, weightValues, weightTsArr);
                       }); 
                       // if (weightAxis == 1) {
               
@@ -383,26 +383,44 @@
                       // }
                   }
 
-                    function determineDims (timeValue, weightArr) {
+                    function determineWeightDims (timeValue, weightArr, weightTsArr) {
                       // alert ("called determine dimensions");
 
                       var chartData = new google.visualization.DataTable();
                       chartData.addColumn('string', 'Time');
                       chartData.addColumn('number', 'Weight');
                       chartData.addColumn ('number', 'Baseline');
+
+                      var times = [];
+                      var values = [];
+                      var baseline = [];
                       
 
                       if (timeValue == 1) {
                         times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
                                "4PM", "5PM", "6PM", "7PM", "8PM"];
 
-                          values = weightArr.slice(0,13);
+                          values = Array(13).fill(0);
+                          weightTsArr.forEach (function (entry) {
+                          var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+                          if (values[temp.getHours() - 8] == 0)
+                            values[temp.getHours() - 8] = weightArr[weightTsArr.indexOf(entry)];
+
+                        })
                           baseline = Array(13).fill(72);
                       }
 
                       else if (timeValue == 7) {
-                        times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
-                        values = weightArr.slice(0,7);
+                        times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+                        values = Array(7).fill(0);
+                        weightTsArr.forEach (function (entry) {
+                          var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+                          console.log (weightArr[weightTsArr.indexOf(entry)]);
+                          if (values[temp.getDay()] < weightArr[weightTsArr.indexOf(entry)]) 
+                            values[temp.getDay()] = weightArr[weightTsArr.indexOf(entry)];
+
+                        })
+                        console.log(values);
                         baseline = Array(7).fill(72);
                        
                       }
@@ -821,7 +839,7 @@
                       baseline = Array(13).fill(72);
                     }
                     else if (paAxis == 7) {
-                      times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+                      times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
                       values = [71, 72, 73, 74, 75, 76, 77];
                       baseline = Array(7).fill(72);
 
@@ -908,7 +926,7 @@
                       baseline = Array(13).fill(72);
                     }
                     else if (saAxis == 7) {
-                      times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+                      times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
                       values = [71, 72, 73, 74, 75, 76, 77];
                       baseline = Array(7).fill(72);
 
@@ -1078,13 +1096,15 @@
 
                         medicationValues = _.map(data,'value');
                         tsArr =        _.map(data,'timestamp');
-                        determineMedDims(weightAxis, medicationValues);
+                        console.log(medicationValues);
+                        console.log(tsArr);
+                        determineMedDims(weightAxis, medicationValues, tsArr);
                       }); 
                     }
 
 
 
-                    function determineMedDims(medAxis, medicationValues) {
+                    function determineMedDims(medAxis, medicationValues, tsArr) {
 
                     // Create the data table.
 
@@ -1092,8 +1112,8 @@
                       data.addColumn('string', 'Time');
                       data.addColumn('number', 'Pills');
 
-                      var times;
-                      var values;
+                      var times = [];
+                      var values = [];
 
                       var s = document.getElementById ('medAxis');
                       var medAxis = s.options [s.selectedIndex].value;
@@ -1101,11 +1121,23 @@
                       if (medAxis == 1) {
                         times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
                                 "4PM", "5PM", "6PM", "7PM", "8PM"];
-                        values = medicationValues.slice(0,13);
+                        values = Array(13).fill(0);
+                        tsArr.forEach (function (entry) {
+                          var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+                          values[temp.getHours() - 8] += 1; // minus 8 to adjust for the indices in times
+
+                        })
+                        console.log(values);
                       }
                       else if (medAxis == 7) {
-                        times = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
-                        values = medicationValues.slice(0,7);
+                        times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+                        values = Array(7).fill(0);
+                        tsArr.forEach (function (entry) {
+                          var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
+                          values[temp.getDay()] += 1;
+
+                        })
+                        console.log(values);
                       }
                       else if (medAxis == 28) {
                         times = ["1", "2", "3", "4", "5", "6", "7",
