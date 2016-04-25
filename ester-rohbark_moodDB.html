@@ -566,7 +566,7 @@
                     }
 
                     var randoingFactor = function(){ return Math.round(Math.random()*100)};
-                    var moodValue = function () {
+                    var writeMood = function () {
                         var s = document.getElementById ('moodAxis');
                         var moodAxis = s.options [s.selectedIndex].value;
 
@@ -602,19 +602,8 @@
                           /* Create array for all 16 mood values */
                           binaryArr = _.concat(tempArr, binaryArr);
                           console.log(binaryArr);
-
                           determineTop5(binaryArr, moodList);
-                          return
-                          // for (counter=0; counter<16; counter++) {
-                          //   if (binaryArr[counter] == 1) {
-                          //     top5.push(moodList[counter]);
-                          //   }
-                          // }
-                          // console.log(top5);
-                          // return top5;
                         });
-                        // console.log(binaryArr);
-                        // console.log(top5);
 
                         // if (moodAxis == 1) {
                         //     top5 = ["Happy", "Sad", "Miserable", "Lonely", "Angry"];
@@ -625,21 +614,17 @@
                         // else if (moodAxis == 28) {
                         //     temp = ["Happy", "Frustrated", "Sad", "Energetic", "Lonely"]
                         // }
-                      return
                     }
 
+                    var top5 = [];
                     function determineTop5(binaryArr, moodList) {
-                      var top5 = [];
                       for (counter=0; counter<16; counter++) {
                         if (binaryArr[counter] == 1) {
                           top5.push(moodList[counter]);
                         }
                       }
                       console.log(top5);
-                      return top5;
-                    }
 
-                    var timeVal = function () {
                       var timeValue;
                       var s = document.getElementById ('moodAxis');
                       var moodAxis = s.options [s.selectedIndex].value;
@@ -653,20 +638,17 @@
                       else if (moodAxis == 28) {
                         timeValue = "28 days";
                       }
-                      return timeValue;
+                      document.getElementById('time_placeholder').innerHTML = timeValue;
+                      document.getElementById('mood_1').innerHTML = top5[0];
+                      document.getElementById('mood_2').innerHTML = top5[1];
+                      document.getElementById('mood_3').innerHTML = top5[2];
+                      document.getElementById('mood_4').innerHTML = top5[3];
+                      document.getElementById('mood_5').innerHTML = top5[4];
                     }
 
 
                     function moodAnim() {
-                      var mood = moodValue();
-                      var timeValue = timeVal();
-                      document.getElementById('time_placeholder').innerHTML = timeValue;
-                      document.getElementById('mood_1').innerHTML = mood[0];
-                      document.getElementById('mood_2').innerHTML = mood[1];
-                      document.getElementById('mood_3').innerHTML = mood[2];
-                      document.getElementById('mood_4').innerHTML = mood[3];
-                      document.getElementById('mood_5').innerHTML = mood[4];
-
+                      writeMood();
                     }
                     </script>
 
