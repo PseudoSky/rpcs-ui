@@ -27,7 +27,7 @@
         <span data-responsive-toggle="responsive-menu" data-hide-for="medium" >
           <button class="menu-icon dark" type="button" data-toggle ></button>
         </span>
-        
+
         <img id="bird-img" width="40" height="auto" src="img/BEC.png">
         <font id="title"><a href="index.html" id="title">BIRD'S EYE CARE</a></font>
       </div>
@@ -227,7 +227,7 @@
 <!--                   <div class= "footer" style="width:100%" align="center"> -->
                   <div id="heartrate-canvas" height="300" width="400"></div>
 <!--                   </div> -->
-                  
+
                   <script defer="true" type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -254,7 +254,7 @@
                       // alert ("called draw weight");
                       var s = document.getElementById ('hrAxis');
                       var hrAxis = s.options [s.selectedIndex].value;
-                    // Create the data table.              
+                    // Create the data table.
 
                       var hrValues = [];
                       getHRData(hrAxis, function (data) {
@@ -263,7 +263,7 @@
                         hrTsArr =        _.map(data,'timestamp');
                         determineHRDims(hrAxis, hrValues, hrTsArr);
                       });
-                    } 
+                    }
 
                     function determineHRDims (timeValue, hrArr, hrTsArr) {
                       // alert ("called determine dimensions");
@@ -276,7 +276,7 @@
                       var times = [];
                       var values = [];
                       var baseline = [];
-                      
+
 
                       if (timeValue == 1) {
                         times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
@@ -290,7 +290,7 @@
                             if (values[temp.getHours() - 8] == 0)
                              values[temp.getHours() - 8] = hrArr[hrTsArr.indexOf(entry)];
                          }
-                         
+
 
                         })
                           baseline = Array(13).fill(72);
@@ -301,12 +301,12 @@
                         values = Array(7).fill(0);
                         hrTsArr.forEach (function (entry) {
                           var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                          if (values[temp.getDay()] < hrArr[hrTsArr.indexOf(entry)]) 
+                          if (values[temp.getDay()] < hrArr[hrTsArr.indexOf(entry)])
                             values[temp.getDay()] = hrArr[hrTsArr.indexOf(entry)];
 
                         })
                         baseline = Array(7).fill(72);
-                       
+
                       }
                       else if (timeValue == 28) {
                         times = ["1", "2", "3", "4", "5", "6", "7",
@@ -359,7 +359,7 @@
                   <div class="footer" style="width:100%" align="center">
                     <div id="weight-canvas" height="300" width="400"></div>
                   </div>
-              
+
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
 
@@ -382,7 +382,7 @@
                     // alert ("called draw weight");
                     var s = document.getElementById ('weightAxis');
                     var weightAxis = s.options [s.selectedIndex].value;
-                    // Create the data table.              
+                    // Create the data table.
 
                     var weightValues = [];
                     getWeightData(weightAxis, function (data) {
@@ -390,9 +390,9 @@
                       weightValues = _.map(data,'value');
                       weightTsArr =        _.map(data,'timestamp');
                       determineWeightDims(weightAxis, weightValues, weightTsArr);
-                    }); 
+                    });
                       // if (weightAxis == 1) {
-              
+
 
                       // }
                       // else if (weightAxis == 7) {
@@ -404,7 +404,7 @@
                       //     // }
                       //     determineDims(7, weightValues);
                       //     // alert (weightValues.length);
-                      //   }); 
+                      //   });
                       // }
                       // else if (weightAxis == 28) {
                       //   getWeightData(28, function (data) {
@@ -414,7 +414,7 @@
                       //     weightValues=_.map(data,'value');
                       //     determineDims(28, weightValues);
                       //     // alert (weightValues.length);
-                      //   }); 
+                      //   });
                       // }
                   }
 
@@ -429,7 +429,7 @@
                     var times = [];
                     var values = [];
                     var baseline = [];
-                    
+
 
                     if (timeValue == 1) {
                       times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
@@ -453,12 +453,12 @@
                       values = Array(7).fill(0);
                       weightTsArr.forEach (function (entry) {
                         var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                        if (values[temp.getDay()] < weightArr[weightTsArr.indexOf(entry)]) 
+                        if (values[temp.getDay()] < weightArr[weightTsArr.indexOf(entry)])
                           values[temp.getDay()] = weightArr[weightTsArr.indexOf(entry)];
 
                       })
                       baseline = Array(7).fill(72);
-                     
+
                     }
                     else if (timeValue == 28) {
                       times = ["1", "2", "3", "4", "5", "6", "7",
@@ -894,11 +894,9 @@
                   </select>
                   <div class= "footer" style="width:100%" align="center">
                     <div id="physical-canvas" height="300" width="400">
-                      <br><h1><span id="daily-steps"></span></h1>
-                      <h4><span id="daily-text"></span></h4><br><br>
                     </div>
                   </div>
-                  
+
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -924,7 +922,7 @@
                       // alert ("called draw weight");
                       var s = document.getElementById ('paAxis');
                       var paAxis = s.options [s.selectedIndex].value;
-                    // Create the data table.              
+                    // Create the data table.
 
                       var paValues = [];
                       getPAData(paAxis, function (data) {
@@ -933,7 +931,7 @@
                         paTsArr =        _.map(data,'timestamp');
                         determinePADims(paAxis, paValues, paTsArr);
                       });
-                    } 
+                    }
 
                     function determinePADims (timeValue, paValues, paTsArr) {
                       // alert ("called determine dimensions");
@@ -946,11 +944,11 @@
                       var times = [];
                       var values = [];
                       var baseline = [];
-                      
 
-                      if (timeValue == 1) {
-                        document.getElementById('daily-steps').innerHTML = paValues[0];
-                        document.getElementById('daily-text').innerHTML = "total steps today";
+
+                      //if (timeValue == 1) {
+                      //  document.getElementById('daily-steps').innerHTML = paValues[0];
+                      //  document.getElementById('daily-text').innerHTML = "total steps today";
                         // times = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM",
                         //        "4PM", "5PM", "6PM", "7PM", "8PM"];
 
@@ -965,21 +963,21 @@
 
                         // })
                         //   baseline = Array(13).fill(5000);
-                      }
+                      
 
-                      else {
+                      //else {
 
                         if (timeValue == 7) {
                           times = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
                           values = Array(7).fill(0);
                           paTsArr.forEach (function (entry) {
                             var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                            if (values[temp.getDay()] < paValues[paTsArr.indexOf(entry)]) 
+                            if (values[temp.getDay()] < paValues[paTsArr.indexOf(entry)])
                               values[temp.getDay()] = paValues[paTsArr.indexOf(entry)];
 
                           })
                           baseline = Array(7).fill(5000);
-                         
+
                         }
                         else if (timeValue == 28) {
                           times = ["1", "2", "3", "4", "5", "6", "7",
@@ -991,32 +989,47 @@
                           baseline = Array(28).fill(5000);
                         }
 
-                        var rows = [];
+                        if (timeValue != 1) {
 
-                        for (i = 0; i < times.length; i++) {
-                          rows.push([times[i], values[i], baseline[i]]);
-                        }
+                            var rows = [];
 
-                        chartPAData.addRows(rows);
+                            for (i = 0; i < times.length; i++) {
+                                rows.push([times[i], values[i], baseline[i]]);
+                            }
+
+                            chartPAData.addRows(rows);
 
                         // Set chart options
-                        var options = { legend: {'position':'top', 'alignment':'center'},
-                                      hAxis: {
-                                        title: 'Time',
-                                      },
-                                      vAxis: {
-                                        title: 'Steps'
-                                      }
-                                    };
+                            var options = { legend: {'position':'top', 'alignment':'center'},
+                                          hAxis: {
+                                            title: 'Time',
+                                          },
+                                        vAxis: {
+                                            title: 'Steps'
+                                        }
+                                      };
 
 
-                      // Instantiate and draw our chart, passing in some options.
-                        var paChart = new google.visualization.LineChart(document.getElementById('physical-canvas'));
-                        paChart.draw(chartPAData, options);
-                      }
+                        // Instantiate and draw our chart, passing in some options.
+                            var paChart = new google.visualization.LineChart(document.getElementById('physical-canvas'));
+                            paChart.draw(chartPAData, options);
+                        }
+                    else {
+                        var pieData = google.visualization.arrayToDataTable([
+                                ['Value', 'Steps per Day'],
+                                ['Steps to go', 5000-paValues[0]],
+                                ['Today', paValues[0]]]);
 
+                        var pieOptions = {
+                            pieHole: 0.4,
+                            pieSliceText: 'value',
+                        };
+
+                        var pie = new google.visualization.PieChart(document.getElementById('physical-canvas'));
+                        pie.draw(pieData, pieOptions); 
                     }
-
+                  }
+          
                     function physicalAnim() {
                       drawPhysicalActivity();
                     }
@@ -1034,7 +1047,7 @@
                   <div class= "footer" style="width:100%" align="center">
                     <div id="social-canvas" height="300" width="400"></div>
                   </div>
-                 
+
                   <script type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -1195,7 +1208,7 @@
                   <div class= "footer" style="width:100%" align="center">
                     <div id="med-canvas" height="300" width="400"></div>
                   </div>
-          
+
                   <script defer="true" type="text/javascript">
                   // Load the Visualization API and the piechart package.
                     //google.load('visualization', '1.0', {'packages':['corechart']});
@@ -1225,7 +1238,7 @@
                       // alert ("called draw weight");
                       var s = document.getElementById ('medAxis');
                       var medAxis = s.options [s.selectedIndex].value;
-                    // Create the data table.              
+                    // Create the data table.
 
                       var medicationValues = [];
                       getMedicationData(medAxis, function (data) {
@@ -1233,7 +1246,7 @@
                         medicationValues = _.map(data,'value');
                         tsArr =        _.map(data,'timestamp');
                         determineMedDims(weightAxis, medicationValues, tsArr);
-                      }); 
+                      });
                     }
 
 
@@ -1259,7 +1272,7 @@
                         var today = new Date();
                         tsArr.forEach (function (entry) {
                           var temp = new Date((entry || "").replace(/-/g,"/").replace(/[TZ]/g," "));
-                          if (today.getDate() == temp.getDate()) 
+                          if (today.getDate() == temp.getDate())
                             values[temp.getHours() - 8] += 1; // minus 8 to adjust for the indices in times
 
                         })
@@ -1339,7 +1352,7 @@
                       </select>
                     </input>
                     <br/>
-                    <input type="checkbox" name="pain2" value="pain2" checked="checked">&nbsp;Patient has felt increasingly 
+                    <input type="checkbox" name="pain2" value="pain2" checked="checked">&nbsp;Patient has felt increasingly
                       <select>
                         <option value="Mood">Mood</option>
                         <option value="Bored">Bored</option>
@@ -1347,14 +1360,14 @@
                         <option value="Hopeless">Hopeless</option>
                         <option value="Tired">Tired</option>
                         <option value="Frustrated">Frustrated</option>
-                      </select> for 
+                      </select> for
                       <select>
                         <option value="days">&#35; days overall</option>
                         <option value="7">7</option>
                         <option value="14">14</option>
                         <option value="21">21</option>
                         <option value="28">28</option>
-                      </select> 
+                      </select>
                     </input>
                     <br/>
                     <a class=" hp-button-primary button" style="float: left;">Save</a>
