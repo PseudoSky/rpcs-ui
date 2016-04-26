@@ -1017,8 +1017,8 @@
                     else {
                         var pieData = google.visualization.arrayToDataTable([
                                 ['Value', 'Steps per Day'],
-                                ['Steps to go', 5000-paValues[0]],
-                                ['Today', paValues[0]]]);
+                                ['Steps so far today', paValues[0]],
+                                ['Steps left to reach goal', 5000-paValues[0]]]);
 
                         var pieOptions = {
                             pieHole: 0.4,
