@@ -530,9 +530,9 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="center"><h3><span id="liquid"></span></h3>liquids per day</td>
-                        <td align="center"><h3><span id="snack"></span></h3>snacks per day</td>
-                        <td align="center"><h3><span id="food"></span></h3>meals per day</td>
+                        <td align="center"><h3><span id="liquid"></span></h3>liquids <span id="liquid-time-description"></span></td>
+                        <td align="center"><h3><span id="snack"></span></h3>snacks <span id="snack-time-description"></span></td>
+                        <td align="center"><h3><span id="food"></span></h3>meals <span id="food-time-description"></span></td>
                       </tr>
                     </table>
                   </div>
@@ -582,6 +582,17 @@
                       document.getElementById('liquid').innerHTML = liquidsAverage;
                       document.getElementById('snack').innerHTML = snacksAverage;
                       document.getElementById('food').innerHTML = foodAvg;
+
+                      if (nutritionAxis==1) {
+                        document.getElementById('liquid-time-description').innerHTML = "today";
+                        document.getElementById('snack-time-description').innerHTML = "today";
+                        document.getElementById('food-time-description').innerHTML = "today";
+                      }
+                      else {
+                        document.getElementById('liquid-time-description').innerHTML = "per day";
+                        document.getElementById('snack-time-description').innerHTML = "per day";
+                        document.getElementById('food-time-description').innerHTML = "per day";
+                      }
 
                     }
                   </script>
