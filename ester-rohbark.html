@@ -660,23 +660,19 @@
                         console.log(binaryArr);
                         determineTop5(binaryArr, moodList);
                       });
-
-                      // if (moodAxis == 1) {
-                      //     top5 = ["Happy", "Sad", "Miserable", "Lonely", "Angry"];
-                      // }
-                      // else if (moodAxis == 7) {
-                      //     temp = ["Sad", "Frustrated", "Happy", "Energetic", "Tired"];
-                      // }
-                      // else if (moodAxis == 28) {
-                      //     temp = ["Happy", "Frustrated", "Sad", "Energetic", "Lonely"]
-                      // }
                     }
 
-                    var top5 = [];
+                    var top5 = ["Happy", "Excited", "Energetic", "Happy", "Excited"];
                     function determineTop5(binaryArr, moodList) {
+                      var first5 = 0;
                       for (counter=0; counter<16; counter++) {
                         if (binaryArr[counter] == 1) {
-                          top5.push(moodList[counter]);
+                          if (first5 < 5) {
+                            top5[first5] = moodList[counter];
+                            first5++;
+                          }
+                          else
+                            break;
                         }
                       }
                       console.log(top5);
