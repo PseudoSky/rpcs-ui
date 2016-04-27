@@ -518,15 +518,15 @@
                       <tr>
                         <td align="center">
                           <h4>
-                          <img id="nutrition-img" src="img/liquid.png" width="50" height="auto"></h4>
+                          <img src="img/liquid.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
                           <h4>
-                          <img id="nutrition-img" src="img/snack.png" width="50" height="auto"></h4>
+                          <img src="img/snack.png" width="50" height="auto"></h4>
                         </td>
                         <td align="center">
                           <h4>
-                          <img id="nutrition-img" src="img/food.png" width="50" height="auto"></h4>
+                          <img src="img/food.png" width="50" height="auto"></h4>
                         </td>
                       </tr>
                       <tr>
@@ -651,7 +651,7 @@
 
                       getMoodData(moodAxis, function (data) {
                         tempArr = _.map(data, 'value');
-                        
+
                         /* Create binary string from int data value */
                         binaryStr = (tempArr[0] >>> 0).toString(2);
                         var len = binaryStr.length;
