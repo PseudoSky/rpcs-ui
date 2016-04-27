@@ -19,8 +19,12 @@
     <script>
       function post_alerts() {
         setTimeout(function(){
-          $("#alerts-test").html("<b>Ester's mood has been negative.</b>");
-        }, 500);
+          var img = document.createElement("img");
+          img.src = "img/alert.png";
+          // $("#alerts-test").html(img);
+          document.getElementById("alert-row").appendChild(img);
+          $("#alerts-test").html("<b>Ester's mood has been negative and may need your attention.</b>");
+        }, 0);
       }
     </script>
   </head>
@@ -211,11 +215,11 @@
             </div>
           </div>
         </div>
-        <p class="section-header" onClick="post_alerts()">Alerts</p><hr>
+        <p class="section-header">Alerts</p><hr>
         <div class="row" id="alert-row">
-          <div class="small-11 small-centered columns" id ="alerts-test">No alerts to show.</div>
+          <div class="small-11 small-centered columns" id="alerts-test">No alerts to show.</div>
 <!--           <div  style= "color:red;"></div>
- -->        </div>
+ -->    </div>
         <p class="section-header">Dashboard</p><hr>
         <div class="row" id="dashboard-row">
           <div id="dashboard-background" class="small-11 small-centered columns">
