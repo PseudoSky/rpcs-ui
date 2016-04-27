@@ -651,6 +651,7 @@
 
                       getMoodData(moodAxis, function (data) {
                         tempArr = _.map(data, 'value');
+                        
                         /* Create binary string from int data value */
                         binaryStr = (tempArr[0] >>> 0).toString(2);
                         var len = binaryStr.length;
@@ -673,7 +674,7 @@
                       });
                     }
 
-                    var top5 = ["Happy", "Excited", "Energetic", "Happy", "Excited"];
+                    var top5 = ["Happy", "Excited", "Energetic", "Bored", "Lonely"];
                     function determineTop5(binaryArr, moodList) {
                       var first5 = 0;
                       for (counter=0; counter<16; counter++) {
