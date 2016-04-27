@@ -13,9 +13,16 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="js/jsapi.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.min.js"></script>
-        <script type="text/javascript">
-        var weightValues = [];
-        </script>
+    <script type="text/javascript">
+      var weightValues = [];
+    </script>
+    <script>
+      function post_alerts() {
+        setTimeout(function(){
+          $("#alerts-test").html("<b>Ester's mood has been negative.</b>");
+        }, 500);
+      }
+    </script>
   </head>
   <body onload="moodAnim(); painAnim(); nutritionAnim(); bathroomAnim();"
     onresize="heartrateAnim(); weightAnim(); medicationAnim(); physicalAnim(); socialAnim(); moodAnim(); painAnim(); bathroomAnim(); nutritionAnim(); sleepAnim();">
@@ -204,10 +211,11 @@
             </div>
           </div>
         </div>
-        <p class="section-header">Alerts</p><hr>
+        <p class="section-header" onClick="post_alerts()">Alerts</p><hr>
         <div class="row" id="alert-row">
-          <div class="small-11 small-centered columns">No alerts to show.</div>
-        </div>
+          <div class="small-11 small-centered columns" id ="alerts-test">No alerts to show.</div>
+<!--           <div  style= "color:red;"></div>
+ -->        </div>
         <p class="section-header">Dashboard</p><hr>
         <div class="row" id="dashboard-row">
           <div id="dashboard-background" class="small-11 small-centered columns">
@@ -654,6 +662,7 @@
 
                         /* Create binary string from int data value */
                         binaryStr = (tempArr[0] >>> 0).toString(2);
+                        console.log(binaryStr);
                         var len = binaryStr.length;
                         var offset = 16 - len;
 
@@ -674,7 +683,8 @@
                       });
                     }
 
-                    var top5 = ["Energetic", "Happy", "Content", "Bored", "Lonely"];
+                    var prevMoods = ["Energetic", "Happy", "Content", "Energetic", "Tired"];
+                    var top5 = ["Energetic", "Happy", "Content", "Energetic", "Tired"];
                     function determineTop5(binaryArr, moodList) {
                       var first5 = 0;
                       for (counter=0; counter<16; counter++) {
@@ -686,6 +696,11 @@
                           else
                             break;
                         }
+                      }
+
+                      if (prevMoods[0] != top5[0]) {
+                        console.log("what");
+                        post_alerts();
                       }
                       console.log(top5);
 
