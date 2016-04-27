@@ -20,7 +20,7 @@
       function post_alerts() {
         setTimeout(function(){
           var img = document.createElement("img");
-          img.src = "img/alert.png";
+          // img.src = "img/alert.png";
           // $("#alerts-test").html(img);
           document.getElementById("alert-row").appendChild(img);
           $("#alerts-test").html("<b>Ester's mood has been negative and may need your attention.</b>");
@@ -687,7 +687,7 @@
                       });
                     }
 
-                    var prevMoods = ["Energetic", "Happy", "Content", "Energetic", "Tired"];
+                    var prevMoods = ["Happy", "Content", "Bored", "Energetic", "Tired"];
                     var top5 = ["Energetic", "Happy", "Content", "Energetic", "Tired"];
                     function determineTop5(binaryArr, moodList) {
                       var first5 = 0;
